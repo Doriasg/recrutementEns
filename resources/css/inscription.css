@@ -1,0 +1,241 @@
+/* ===== STYLES GÉNÉRAUX POUR INSCRIPTION ===== */
+
+body {
+    background: linear-gradient(135deg, #f5f7fa 0%, #e4e8f0 100%);
+    min-height: 100vh;
+    color: #333;
+    line-height: 1.6;
+    display: flex;
+    flex-direction: column;
+}
+
+
+/* ===== MAIN CONTENT ===== */
+
+.main-container {
+    flex: 1;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 60px 40px;
+}
+
+.register-card {
+    width: 100%;
+    max-width: 800px;
+    background: white;
+    border-radius: 20px;
+    box-shadow: 0 15px 50px rgba(0, 0, 0, 0.1);
+    overflow: hidden;
+    animation: fadeIn 0.6s ease-out;
+}
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(30px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.card-header {
+    background: linear-gradient(90deg, #0a3f8f, #0b4fa3);
+    color: white;
+    padding: 40px;
+    text-align: center;
+}
+
+.card-header h2 {
+    font-size: 32px;
+    font-weight: 600;
+    margin-bottom: 10px;
+}
+
+.card-header p {
+    opacity: 0.9;
+    font-size: 16px;
+}
+
+.card-content {
+    padding: 40px;
+}
+
+.form-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 25px;
+    margin-bottom: 25px;
+}
+
+.form-group {
+    margin-bottom: 25px;
+}
+
+.form-group.full-width {
+    grid-column: 1 / -1;
+}
+
+.form-group label {
+    display: block;
+    margin-bottom: 10px;
+    font-weight: 600;
+    color: #444;
+    font-size: 14px;
+}
+
+.input-with-icon {
+    position: relative;
+}
+
+.input-with-icon i {
+    position: absolute;
+    left: 18px;
+    top: 50%;
+    transform: translateY(-50%);
+    color: #7b8ab8;
+    font-size: 16px;
+}
+
+.input-with-icon input,
+select {
+    width: 100%;
+    padding: 16px 16px 16px 50px;
+    border: 2px solid #e1e5f1;
+    border-radius: 12px;
+    font-size: 15px;
+    transition: all 0.3s;
+    background-color: #f8fafc;
+}
+
+.input-with-icon input:focus,
+select:focus {
+    outline: none;
+    border-color: #0a3f8f;
+    background-color: white;
+    box-shadow: 0 0 0 4px rgba(10, 63, 143, 0.1);
+}
+
+.password-toggle {
+    position: absolute;
+    right: 18px;
+    top: 50%;
+    transform: translateY(-50%);
+    color: #7b8ab8;
+    cursor: pointer;
+    font-size: 16px;
+}
+
+.password-toggle:hover {
+    color: #0a3f8f;
+}
+
+.checkbox-group {
+    display: flex;
+    align-items: flex-start;
+    gap: 12px;
+    margin: 30px 0;
+    padding: 20px;
+    background-color: #f8f9ff;
+    border-radius: 12px;
+    border-left: 4px solid #0a3f8f;
+}
+
+.checkbox-group input[type="checkbox"] {
+    width: 20px;
+    height: 20px;
+    margin-top: 2px;
+    accent-color: #0a3f8f;
+}
+
+.checkbox-group label {
+    font-weight: normal;
+    font-size: 14px;
+    line-height: 1.5;
+    color: #555;
+    margin-bottom: 0;
+}
+
+.checkbox-group a {
+    color: #0a3f8f;
+    text-decoration: none;
+    font-weight: 600;
+}
+
+.checkbox-group a:hover {
+    text-decoration: underline;
+}
+
+.btn-register {
+    width: 100%;
+    padding: 18px;
+    background: linear-gradient(90deg, #0a3f8f, #0b4fa3);
+    color: white;
+    border: none;
+    border-radius: 12px;
+    font-size: 16px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.3s;
+    letter-spacing: 0.5px;
+}
+
+.btn-register:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 10px 25px rgba(10, 63, 143, 0.3);
+}
+
+.login-link {
+    text-align: center;
+    margin-top: 30px;
+    padding-top: 25px;
+    border-top: 1px solid #eee;
+    color: #666;
+    font-size: 15px;
+}
+
+.login-link a {
+    color: #0a3f8f;
+    text-decoration: none;
+    font-weight: 600;
+    margin-left: 5px;
+}
+
+.login-link a:hover {
+    text-decoration: underline;
+}
+
+
+/* ===== RESPONSIVE INSCRIPTION ===== */
+
+@media (max-width: 768px) {
+    .main-container {
+        padding: 40px 15px;
+    }
+    .register-card {
+        border-radius: 15px;
+    }
+    .card-header {
+        padding: 30px 20px;
+    }
+    .card-header h2 {
+        font-size: 24px;
+    }
+    .card-content {
+        padding: 25px 20px;
+    }
+    /* FORMULAIRE EN 1 COLONNE */
+    .form-grid {
+        grid-template-columns: 1fr;
+        gap: 20px;
+    }
+    .btn-register {
+        font-size: 15px;
+        padding: 16px;
+    }
+    .login-link {
+        font-size: 14px;
+    }
+}
