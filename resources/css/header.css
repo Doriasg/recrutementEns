@@ -1,0 +1,233 @@
+/* ===== HEADER STYLES ===== */
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+.top-line {
+    height: 4px;
+    background: linear-gradient(90deg, #7b3fe4, #9b5fe8);
+}
+
+.header {
+    background: linear-gradient(90deg, #0a3f8f, #0b4fa3);
+    color: #fff;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+    position: relative;
+}
+
+.header-container {
+    max-width: 1400px;
+    margin: 0 auto;
+    padding: 0 40px;
+}
+
+.header-top {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 15px 0;
+}
+
+.header-left {
+    display: flex;
+    align-items: center;
+    gap: 20px;
+}
+
+.logo-container {
+    display: flex;
+    align-items: center;
+    gap: 20px;
+}
+
+.logo-inst {
+    width: 70px;
+    height: 70px;
+    background: white;
+    border-radius: 50%;
+    padding: 8px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s;
+}
+
+.logo-inst:hover {
+    transform: scale(1.05);
+}
+
+.header-title h1 {
+    font-size: 36px;
+    letter-spacing: 1.5px;
+    font-weight: 700;
+    margin-bottom: 5px;
+    text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.2);
+}
+
+.header-title span {
+    font-size: 14px;
+    line-height: 1.4;
+    display: block;
+    opacity: 0.9;
+    font-weight: 300;
+}
+
+.header-right {
+    display: flex;
+    align-items: center;
+    gap: 25px;
+}
+
+.header-right .item {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    font-size: 14px;
+    font-weight: 500;
+    padding: 10px 16px;
+    background: rgba(255, 255, 255, 0.1);
+    border-radius: 30px;
+    transition: all 0.3s;
+    cursor: pointer;
+}
+
+.header-right .item:hover {
+    background: rgba(255, 255, 255, 0.2);
+    transform: translateY(-2px);
+}
+
+.unstim-logo-top {
+    width: 45px;
+    height: 45px;
+    background: white;
+    border-radius: 10px;
+    padding: 5px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.header-line {
+    height: 1px;
+    background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.6), transparent);
+    margin: 0 40px;
+}
+
+.header-menu {
+    padding: 15px 0;
+}
+
+.header-menu nav {
+    display: flex;
+    justify-content: center;
+    gap: 40px;
+}
+
+.header-menu a {
+    color: #fff;
+    text-decoration: none;
+    font-size: 14px;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    padding: 8px 0;
+    position: relative;
+    transition: color 0.3s;
+}
+
+.header-menu a::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 0;
+    height: 2px;
+    background: white;
+    transition: width 0.3s;
+}
+
+.header-menu a:hover::after {
+    width: 100%;
+}
+
+.header-menu a:hover {
+    color: #e6f0ff;
+}
+
+
+/* ===== MENU HAMBURGER ===== */
+
+.menu-toggle {
+    display: none;
+    flex-direction: column;
+    gap: 6px;
+    cursor: pointer;
+}
+
+.menu-toggle span {
+    width: 28px;
+    height: 3px;
+    background: #fff;
+    border-radius: 2px;
+    transition: 0.3s;
+}
+
+
+/* ===== RESPONSIVE MOBILE ===== */
+
+@media (max-width: 900px) {
+    .header-container {
+        padding: 0 20px;
+    }
+    .header-top {
+        flex-wrap: wrap;
+    }
+    .header-right {
+        display: none;
+    }
+    .menu-toggle {
+        display: flex;
+    }
+    .header-line {
+        display: none;
+    }
+    .header-menu {
+        display: none;
+        width: 100%;
+        background: #0b4fa3;
+        animation: slideDown 0.3s ease;
+    }
+    .header-menu.active {
+        display: block;
+    }
+    .header-menu nav {
+        flex-direction: column;
+        gap: 0;
+    }
+    .header-menu a {
+        padding: 15px;
+        border-top: 1px solid rgba(255, 255, 255, 0.15);
+        text-align: center;
+    }
+    .header-title h1 {
+        font-size: 26px;
+    }
+    .logo-inst {
+        width: 55px;
+        height: 55px;
+    }
+}
+
+
+/* Animation */
+
+@keyframes slideDown {
+    from {
+        opacity: 0;
+        transform: translateY(-10px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
