@@ -1,370 +1,533 @@
-<!DOCTYPE html>
-<html lang="fr">
+/* ===== STYLES GÉNÉRAUX OFFRE DÉTAILS ===== */
 
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>INSTI - Détails de l'Offre</title>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
-    <link rel="stylesheet" href="css/header.css">
-    <link rel="stylesheet" href="css/footer.css">
-    <link rel="stylesheet" href="css/offre-details.css">
-</head>
-
-<body>
-    <!-- HEADER -->
-    <div class="top-line"></div>
-    <header class="header">
-        <div class="header-container">
-            <!-- HEADER TOP -->
-            <div class="header-top">
-                <div class="header-left">
-                    <div class="logo-container">
-                        <img src="assets/images/logo-insti.png" alt="INSTI" class="logo-inst">
-                        <div class="header-title">
-                            <h1>INSTI</h1>
-                            <span>
-                            Institut National Supérieur<br>
-                            de Technologie Industrielle de Lokossa
-                        </span>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="header-right">
-                    <div class="item">
-                        <i class="fas fa-user"></i>
-                        <span>Mon Compte</span>
-                    </div>
-                    <div class="item">
-                        <i class="fas fa-briefcase"></i>
-                        <span>Mes Candidatures</span>
-                    </div>
-                    <img src="assets/images/logo-unstim.png" alt="UNSTIM" class="unstim-logo-top">
-                </div>
-
-                <!-- BOUTON HAMBURGER -->
-                <div class="menu-toggle" id="menuToggle">
-                    <span></span>
-                    <span></span>
-                    <span></span>
-                </div>
-            </div>
-
-            <div class="header-line"></div>
-
-            <!-- MENU NAVIGATION -->
-            <div class="header-menu">
-                <nav>
-                    <a href="index.html">ACCUEIL</a>
-                    <a href="#">OFFRES</a>
-                    <a href="dashboard.html">TABLEAU DE BORD</a>
-                    <a href="#">PROFIL</a>
-                    <a href="connexion.html">CONNEXION</a>
-                </nav>
-            </div>
-        </div>
-    </header>
-    <!-- MAIN CONTENT -->
-    <main class="offer-details-container">
-        <!-- BACK LINK -->
-        <div class="back-link">
-            <a href="index.html">
-                <i class="fas fa-arrow-left"></i> Retour aux offres
-            </a>
-        </div>
-
-        <!-- OFFER HEADER -->
-        <section class="offer-header">
-            <div class="offer-title-section">
-                <h1 class="offer-title">Enseignant en Génie Électrique</h1>
-                <div class="offer-meta">
-                    <div class="meta-item">
-                        <i class="fas fa-building"></i> Département Génie Électrique
-                    </div>
-                    <div class="meta-item">
-                        <i class="fas fa-clock"></i> Temps plein
-                    </div>
-                    <div class="meta-item">
-                        <i class="fas fa-map-marker-alt"></i> Lokossa, Bénin
-                    </div>
-                </div>
-                <div class="offer-availability">
-                    <i class="fas fa-briefcase"></i> 2 Postes disponibles
-                </div>
-            </div>
-
-            <div class="date-info">
-                <div class="publication-date">
-                    <div class="date-label">Publié le</div>
-                    <div class="date-value">1er Décembre 2024</div>
-                </div>
-                <div class="deadline-date">
-                    <div class="date-label">Date limite de candidature</div>
-                    <div class="date-value">15 Janvier 2025</div>
-                    <div class="deadline-remaining">
-                        <i class="fas fa-clock"></i>
-                        <span>il reste 9 jours</span>
-                    </div>
-                </div>
-            </div>
-        </section>
-
-        <!-- OFFER CONTENT GRID -->
-        <div class="offer-content-grid">
-            <!-- MAIN CONTENT -->
-            <div class="offer-main-content">
-                <!-- DESCRIPTION SECTION -->
-                <section class="content-section">
-                    <h2 class="section-title">
-                        <i class="fas fa-file-alt"></i> Description du poste
-                    </h2>
-                    <div class="description-text">
-                        <p>L'Institut National Supérieur de Technologie Industrielle de Lokossa (INSTI) recrute un enseignant qualifié en Génie Électrique pour renforcer son équipe pédagogique et contribuer à la formation d'excellence de nos étudiants.</p>
-                        <p>Le candidat retenu sera responsable de l'enseignement des cours théoriques et pratiques en génie électrique, de l'encadrement des travaux dirigés et pratiques, ainsi que de la supervision des projets d'étudiants.</p>
-                        <p>Il/Elle participera également aux activités de recherche du département et contribuera au développement de partenariats avec le secteur industriel.</p>
-                    </div>
-                </section>
-
-                <!-- MISSIONS SECTION -->
-                <section class="content-section">
-                    <h2 class="section-title">
-                        <i class="fas fa-tasks"></i> Missions principales
-                    </h2>
-                    <ul class="missions-list">
-                        <li>Assurer les cours magistraux, travaux dirigés et travaux pratiques</li>
-                        <li>Encadrer et superviser les projets et mémoires d'étudiants</li>
-                        <li>Participer aux activités de recherche du département</li>
-                        <li>Contribuer au développement et à la mise à jour des programmes pédagogiques</li>
-                        <li>Participer aux examens et jurys de délibération</li>
-                        <li>Assurer une veille technologique dans son domaine de spécialité</li>
-                        <li>Développer des partenariats avec le secteur industriel</li>
-                    </ul>
-                </section>
-
-                <!-- PROFILE SECTION -->
-                <section class="content-section">
-                    <h2 class="section-title">
-                        <i class="fas fa-user-graduate"></i> Profil Recherché
-                    </h2>
-
-                    <div class="requirements-category">
-                        <h4><i class="fas fa-graduation-cap"></i> Formation requise</h4>
-                        <ul class="requirements-list">
-                            <li>Doctorat (PhD) en Génie Électrique ou domaine connexe</li>
-                            <li>Master avec expérience significative sera considéré</li>
-                        </ul>
-                    </div>
-
-                    <div class="requirements-category">
-                        <h4><i class="fas fa-briefcase"></i> Expérience</h4>
-                        <ul class="requirements-list">
-                            <li>Minimum 3 ans d'expérience dans l'enseignement supérieur</li>
-                            <li>Expérience en recherche avec publications dans des revues internationales</li>
-                            <li>Expérience en encadrement de projets d'étudiants</li>
-                        </ul>
-                    </div>
-
-                    <div class="requirements-category">
-                        <h4><i class="fas fa-cogs"></i> Compétences</h4>
-                        <ul class="requirements-list">
-                            <li>Excellentes capacités pédagogiques et de communication</li>
-                            <li>Anglais ou français obligatoires et l'autre souhaité</li>
-                            <li>Compétence en gestion de projets</li>
-                            <li>Aptitude au travail en équipe</li>
-                            <li>Sens de l'innovation pédagogique</li>
-                        </ul>
-                    </div>
-                </section>
-
-                <!-- DOCUMENTS SECTION -->
-                <section class="content-section">
-                    <h2 class="section-title">
-                        <i class="fas fa-file-upload"></i> Documents à fournir
-                    </h2>
-                    <ul class="documents-list">
-                        <li>Curriculum vitae détaillé</li>
-                        <li>Lettre de motivation</li>
-                        <li>Copies certifiées des diplômes</li>
-                        <li>Attestation de travail</li>
-                        <li>Liste des publications scientifiques</li>
-                        <li>Deux lettres de recommandation</li>
-                        <li>Copie de la pièce d'identité</li>
-                    </ul>
-                </section>
-            </div>
-
-            <!-- SIDEBAR -->
-            <div class="offer-sidebar">
-                <!-- STATUS & ACTIONS -->
-                <section class="status-actions">
-                    <div class="status-badge-large">
-                        <i class="fas fa-check-circle"></i> Offre ouverte aux candidatures
-                    </div>
-
-                    <div class="actions-buttons">
-                        <a href="#" class="apply-button" id="applyButton">
-                            <i class="fas fa-paper-plane"></i> Postuler maintenant
-                        </a>
-
-                        <a href="#" class="save-button" id="saveButton">
-                            <i class="far fa-bookmark"></i> Sauvegarder l'offre
-                        </a>
-                    </div>
-
-                    <!-- APPLICATION ALERT -->
-                    <div class="application-alert" id="applicationAlert">
-                        <!-- Alert messages will appear here -->
-                    </div>
-                </section>
-
-                <!-- OFFER INFO -->
-                <section class="offer-info">
-                    <h3 class="section-title">
-                        <i class="fas fa-info-circle"></i> Informations
-                    </h3>
-
-                    <div class="info-item">
-                        <span class="info-label">Référence</span>
-                        <span class="info-value">INSTI-2025-GE-001</span>
-                    </div>
-
-                    <div class="info-item">
-                        <span class="info-label">Type de contrat</span>
-                        <span class="info-value">CDI - Temps plein</span>
-                    </div>
-
-                    <div class="info-item">
-                        <span class="info-label">Lieu de travail</span>
-                        <span class="info-value">Campus INSTI - Lokossa</span>
-                    </div>
-
-                    <div class="info-item">
-                        <span class="info-label">Salaire</span>
-                        <span class="info-value">Selon grille de la Fonction Publique</span>
-                    </div>
-
-                    <div class="info-item">
-                        <span class="info-label">Prise de fonction</span>
-                        <span class="info-value">Septembre 2025</span>
-                    </div>
-                </section>
-
-                <!-- CONTACT INFO -->
-                <section class="contact-info-sidebar">
-                    <h3><i class="fas fa-headset"></i> Contact</h3>
-                    <p style="margin-bottom: 20px; opacity: 0.9; font-size: 14px;">
-                        Pour toute information concernant cette offre, contactez :
-                    </p>
-
-                    <div class="contact-details">
-                        <div class="contact-item">
-                            <div class="contact-icon">
-                                <i class="fas fa-envelope"></i>
-                            </div>
-                            <div class="contact-text">
-                                <strong>Email</strong>
-                                <span>recruitment@insti.bj</span>
-                            </div>
-                        </div>
-
-                        <div class="contact-item">
-                            <div class="contact-icon">
-                                <i class="fas fa-phone"></i>
-                            </div>
-                            <div class="contact-text">
-                                <strong>Téléphone</strong>
-                                <span>(+229) 21 91 66 66</span>
-                            </div>
-                        </div>
-
-                        <div class="contact-item">
-                            <div class="contact-icon">
-                                <i class="fas fa-clock"></i>
-                            </div>
-                            <div class="contact-text">
-                                <strong>Horaires</strong>
-                                <span>Lun - Ven: 8h - 17h</span>
-                            </div>
-                        </div>
-                    </div>
-                </section>
-            </div>
-        </div>
-    </main>
-
-    <!-- FOOTER -->
-    <footer>
-        <div class="footer-container">
-            <div class="footer-grid">
-                <!-- Nos Ressources -->
-                <div class="footer-section">
-                    <h3>Nos Ressources</h3>
-                    <ul class="footer-links">
-                        <li><a href="#"><i class="fas fa-rocket"></i> Incubateur de startups</a></li>
-                        <li><a href="#"><i class="fas fa-cogs"></i> Unité d'application de l'INSTI</a></li>
-                        <li><a href="#"><i class="fas fa-laptop"></i> Plateforme E-learning</a></li>
-                        <li><a href="#"><i class="fas fa-blog"></i> Blog officiel de l'INSTI</a></li>
-                    </ul>
-                </div>
-
-                <!-- Liens utiles -->
-                <div class="footer-section">
-                    <h3>Liens utiles</h3>
-                    <ul class="footer-links">
-                        <li><a href="#"><i class="fas fa-graduation-cap"></i> Ministère de l'Enseignement Supérieur et de la Recherche Scientifique</a></li>
-                        <li><a href="#"><i class="fas fa-cogs"></i> Unité d'application de l'INSTI</a></li>
-                    </ul>
-                </div>
-
-                <!-- Navigations -->
-                <div class="footer-section">
-                    <h3>Navigations</h3>
-                    <ul class="footer-links">
-                        <li><a href="index.html"><i class="fas fa-home"></i> Accueil</a></li>
-                        <li><a href="#"><i class="fas fa-book"></i> Formation</a></li>
-                        <li><a href="#"><i class="fas fa-users"></i> Vie estudiantine</a></li>
-                        <li><a href="#"><i class="fas fa-photo-video"></i> Mediathèque</a></li>
-                    </ul>
-                </div>
-
-                <!-- Contact -->
-                <div class="footer-section">
-                    <h3>Contact Recrutement</h3>
-                    <div class="contact-info">
-                        <div class="contact-item">
-                            <i class="fas fa-envelope"></i>
-                            <span>recrutement@insti.bj</span>
-                        </div>
-                        <div class="contact-item">
-                            <i class="fas fa-phone"></i>
-                            <span>+229 21 91 66 66</span>
-                        </div>
-                        <div class="moto">
-                            Science et technologie au service de l'homme
-                        </div>
-                    </div>
-                </div>
-            </div>
-
-            <div class="footer-bottom">
-                <div class="copyright">
-                    INSTI-UNSTIM © 2024 | Offre n°INSTI-2025-GE-001
-                </div>
-            </div>
-        </div>
-    </footer>
-    <script>
-        const menuToggle = document.getElementById('menuToggle');
-        const headerMenu = document.querySelector('.header-menu');
-
-        menuToggle.addEventListener('click', () => {
-            headerMenu.classList.toggle('active');
-        });
-    </script>
+body {
+    background: linear-gradient(135deg, #f5f7fa 0%, #e4e8f0 100%);
+    min-height: 100vh;
+    color: #333;
+    line-height: 1.6;
+    display: flex;
+    flex-direction: column;
+}
 
 
-    <script src="js/offre-details.js"></script>
-</body>
+/* ===== MAIN CONTENT ===== */
 
-</html>
+.offer-details-container {
+    max-width: 1200px;
+    margin: 40px auto;
+    padding: 0 40px;
+    flex: 1;
+}
+
+
+/* ===== BACK LINK ===== */
+
+.back-link {
+    margin-bottom: 30px;
+}
+
+.back-link a {
+    display: inline-flex;
+    align-items: center;
+    gap: 10px;
+    color: #0a3f8f;
+    text-decoration: none;
+    font-weight: 600;
+    font-size: 16px;
+    padding: 10px 20px;
+    background: white;
+    border-radius: 30px;
+    box-shadow: 0 3px 15px rgba(0, 0, 0, 0.08);
+    transition: all 0.3s;
+}
+
+.back-link a:hover {
+    background: #0a3f8f;
+    color: white;
+    transform: translateX(-5px);
+}
+
+
+/* ===== OFFER HEADER ===== */
+
+.offer-header {
+    background: white;
+    border-radius: 20px;
+    padding: 40px;
+    margin-bottom: 30px;
+    box-shadow: 0 5px 25px rgba(0, 0, 0, 0.08);
+    position: relative;
+    overflow: hidden;
+}
+
+.offer-header::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 8px;
+    height: 100%;
+    background: linear-gradient(to bottom, #0a3f8f, #7b3fe4);
+}
+
+.offer-title-section {
+    margin-bottom: 25px;
+}
+
+.offer-title {
+    color: #0a3f8f;
+    font-size: 32px;
+    font-weight: 700;
+    margin-bottom: 15px;
+}
+
+.offer-meta {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px;
+    margin-bottom: 20px;
+}
+
+.meta-item {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    color: #666;
+    font-size: 14px;
+}
+
+.meta-item i {
+    color: #7b3fe4;
+}
+
+.offer-availability {
+    background: #d4edda;
+    color: #155724;
+    padding: 8px 20px;
+    border-radius: 20px;
+    font-size: 14px;
+    font-weight: 600;
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+}
+
+
+/* ===== DATE INFO ===== */
+
+.date-info {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 30px;
+    padding: 25px;
+    background: #f8f9ff;
+    border-radius: 15px;
+    margin-top: 20px;
+}
+
+.publication-date,
+.deadline-date {
+    flex: 1;
+    min-width: 250px;
+}
+
+.date-label {
+    font-size: 14px;
+    color: #666;
+    margin-bottom: 5px;
+}
+
+.date-value {
+    font-size: 18px;
+    font-weight: 700;
+    color: #0a3f8f;
+}
+
+.deadline-remaining {
+    color: #ff6b6b;
+    font-size: 14px;
+    margin-top: 5px;
+    display: flex;
+    align-items: center;
+    gap: 5px;
+}
+
+
+/* ===== OFFER CONTENT GRID ===== */
+
+.offer-content-grid {
+    display: grid;
+    grid-template-columns: 2fr 1fr;
+    gap: 30px;
+    margin-bottom: 40px;
+}
+
+
+/* ===== MAIN CONTENT ===== */
+
+.offer-main-content {
+    display: flex;
+    flex-direction: column;
+    gap: 30px;
+}
+
+
+/* ===== CONTENT SECTIONS ===== */
+
+.content-section {
+    background: white;
+    border-radius: 20px;
+    padding: 30px;
+    box-shadow: 0 5px 20px rgba(0, 0, 0, 0.08);
+}
+
+.section-title {
+    color: #0a3f8f;
+    font-size: 24px;
+    font-weight: 700;
+    margin-bottom: 25px;
+    padding-bottom: 15px;
+    border-bottom: 3px solid #f0f4ff;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.section-title i {
+    color: #7b3fe4;
+}
+
+
+/* ===== DESCRIPTION ===== */
+
+.description-text {
+    color: #444;
+    line-height: 1.8;
+    font-size: 15px;
+}
+
+.description-text p {
+    margin-bottom: 15px;
+}
+
+
+/* ===== MISSIONS LIST ===== */
+
+.missions-list,
+.requirements-list,
+.documents-list {
+    list-style: none;
+}
+
+.missions-list li,
+.requirements-list li,
+.documents-list li {
+    padding: 12px 0;
+    padding-left: 35px;
+    position: relative;
+    border-bottom: 1px solid #f0f0f0;
+}
+
+.missions-list li:last-child,
+.requirements-list li:last-child,
+.documents-list li:last-child {
+    border-bottom: none;
+}
+
+.missions-list li::before,
+.requirements-list li::before,
+.documents-list li::before {
+    content: '✓';
+    position: absolute;
+    left: 0;
+    top: 12px;
+    width: 24px;
+    height: 24px;
+    background: #0a3f8f;
+    color: white;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 12px;
+    font-weight: bold;
+}
+
+
+/* ===== REQUIREMENTS ===== */
+
+.requirements-category {
+    margin-bottom: 25px;
+}
+
+.requirements-category h4 {
+    color: #0a3f8f;
+    font-size: 18px;
+    margin-bottom: 15px;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.requirements-category h4 i {
+    color: #7b3fe4;
+    font-size: 16px;
+}
+
+
+/* ===== SIDEBAR ===== */
+
+.offer-sidebar {
+    display: flex;
+    flex-direction: column;
+    gap: 30px;
+}
+
+
+/* ===== STATUS & ACTIONS ===== */
+
+.status-actions {
+    background: white;
+    border-radius: 20px;
+    padding: 30px;
+    box-shadow: 0 5px 20px rgba(0, 0, 0, 0.08);
+    text-align: center;
+}
+
+.status-badge-large {
+    background: #d4edda;
+    color: #155724;
+    padding: 15px 25px;
+    border-radius: 15px;
+    font-size: 16px;
+    font-weight: 700;
+    margin-bottom: 30px;
+    display: inline-flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.actions-buttons {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}
+
+.apply-button,
+.save-button {
+    padding: 18px;
+    border-radius: 15px;
+    font-size: 16px;
+    font-weight: 600;
+    text-decoration: none;
+    text-align: center;
+    transition: all 0.3s;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+}
+
+.apply-button {
+    background: linear-gradient(90deg, #0a3f8f, #0b4fa3);
+    color: white;
+}
+
+.apply-button:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 10px 25px rgba(10, 63, 143, 0.3);
+}
+
+.save-button {
+    background: white;
+    color: #0a3f8f;
+    border: 2px solid #0a3f8f;
+}
+
+.save-button:hover {
+    background: #0a3f8f;
+    color: white;
+    transform: translateY(-3px);
+}
+
+
+/* ===== OFFER INFO ===== */
+
+.offer-info {
+    background: white;
+    border-radius: 20px;
+    padding: 30px;
+    box-shadow: 0 5px 20px rgba(0, 0, 0, 0.08);
+}
+
+.info-item {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 15px 0;
+    border-bottom: 1px solid #f0f0f0;
+}
+
+.info-item:last-child {
+    border-bottom: none;
+}
+
+.info-label {
+    color: #666;
+    font-size: 14px;
+    font-weight: 500;
+}
+
+.info-value {
+    color: #0a3f8f;
+    font-weight: 600;
+    font-size: 15px;
+}
+
+
+/* ===== CONTACT INFO ===== */
+
+.contact-info-sidebar {
+    background: linear-gradient(135deg, #0a3f8f, #0b4fa3);
+    border-radius: 20px;
+    padding: 30px;
+    color: white;
+}
+
+.contact-info-sidebar h3 {
+    font-size: 20px;
+    margin-bottom: 25px;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.contact-details {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+.contact-item {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+}
+
+.contact-icon {
+    width: 40px;
+    height: 40px;
+    background: rgba(255, 255, 255, 0.2);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 16px;
+}
+
+.contact-text {
+    flex: 1;
+}
+
+.contact-text strong {
+    display: block;
+    margin-bottom: 5px;
+    font-size: 14px;
+}
+
+.contact-text span {
+    font-size: 13px;
+    opacity: 0.9;
+}
+
+
+/* ===== ALERT ===== */
+
+.application-alert {
+    background: #fff3cd;
+    border: 1px solid #ffeaa7;
+    color: #856404;
+    padding: 20px;
+    border-radius: 15px;
+    margin-top: 30px;
+    text-align: center;
+    font-size: 14px;
+    display: none;
+}
+
+.application-alert.show {
+    display: block;
+    animation: slideDown 0.5s ease;
+}
+
+@keyframes slideDown {
+    from {
+        opacity: 0;
+        transform: translateY(-20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+
+/* ===== RESPONSIVE ===== */
+
+@media (max-width: 1024px) {
+    .offer-content-grid {
+        grid-template-columns: 1fr;
+    }
+    .offer-sidebar {
+        order: -1;
+    }
+}
+
+@media (max-width: 768px) {
+    .offer-details-container {
+        padding: 0 20px;
+    }
+    .offer-header {
+        padding: 30px 20px;
+    }
+    .offer-title {
+        font-size: 24px;
+    }
+    .date-info {
+        flex-direction: column;
+        gap: 15px;
+    }
+    .content-section {
+        padding: 25px 20px;
+    }
+    .section-title {
+        font-size: 20px;
+    }
+    .status-actions,
+    .offer-info,
+    .contact-info-sidebar {
+        padding: 25px 20px;
+    }
+    .info-item {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 5px;
+    }
+}
+
+@media (max-width: 480px) {
+    .offer-meta {
+        flex-direction: column;
+        gap: 10px;
+    }
+    .missions-list li,
+    .requirements-list li,
+    .documents-list li {
+        padding-left: 30px;
+    }
+    .apply-button,
+    .save-button {
+        padding: 15px;
+        font-size: 15px;
+    }
+}
