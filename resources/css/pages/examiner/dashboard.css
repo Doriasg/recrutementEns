@@ -1,0 +1,18 @@
+/* ===== TABLEAU DE BORD EXAMINATEUR ===== */
+.welcome-section {background:linear-gradient(135deg,var(--secondary-purple),var(--secondary-purple-light));color:var(--white);padding:var(--space-8);border-radius:var(--radius-xl);margin-bottom:var(--space-8);}
+.stats-section {display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:var(--space-4);margin-bottom:var(--space-8);}
+.stat-card {background:var(--white);border-radius:var(--radius-xl);padding:var(--space-6);text-align:center;box-shadow:var(--shadow-md);}
+.stat-icon {width:60px;height:60px;border-radius:var(--radius-lg);display:flex;align-items:center;justify-content:center;margin:0 auto var(--space-4);color:var(--white);}
+.stat-number {font-size:2.5rem;font-weight:800;color:var(--primary-blue-dark);}
+.dashboard-grid {display:grid;grid-template-columns:2fr 1fr;gap:var(--space-8);}
+.evaluations-list {display:flex;flex-direction:column;gap:var(--space-4);}
+.evaluation-card {background:var(--white);border-radius:var(--radius-lg);padding:var(--space-4);border:1px solid var(--gray-200);}
+.evaluation-header {display:flex;justify-content:space-between;align-items:flex-start;margin-bottom:var(--space-4);}
+.candidate-info {display:flex;align-items:center;gap:var(--space-3);}
+.candidate-avatar {width:48px;height:48px;background:var(--gray-100);border-radius:50%;display:flex;align-items:center;justify-content:center;color:var(--primary-blue);}
+.evaluation-status {padding:var(--space-1) var(--space-3);border-radius:var(--radius-full);font-size:0.75rem;font-weight:600;}
+.status-urgent {background:rgba(239,68,68,0.1);color:var(--accent-danger);}
+.evaluation-details {display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:var(--space-3);margin-bottom:var(--space-4);}
+.evaluation-actions {display:flex;gap:var(--space-2);}
+.btn-evaluate {background:var(--primary-blue);color:var(--white);padding:var(--space-2) var(--space-4);border-radius:var(--radius-lg);text-decoration:none;}
+.quick-actions,.statistics-widget {background:var(--white);border-radius:var(--radius-xl);padding:var(--space-6);box-shadow:var(--shadow-md);}
