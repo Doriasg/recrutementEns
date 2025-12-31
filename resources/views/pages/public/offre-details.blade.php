@@ -1,209 +1,291 @@
 @extends('layouts.public')
 
-@section('title', 'INSTI - Offres d\'Emploi')
+@section('title', 'INSTI - Détails de l\'Offre')
 
 @section('content')
-    <!-- HERO HEADER -->
-    <div class="hero-header">
+    <!-- BACK LINK -->
+    <div class="back-link">
         <div class="container">
-            <h1>Offres d'Emploi</h1>
-            <p>Découvrez toutes les opportunités de carrière à l'INSTI</p>
+            <a href="{{ route('offers.index') }}">
+                <i class="fas fa-arrow-left"></i> Retour aux offres
+            </a>
         </div>
     </div>
 
-    <!-- FILTERS SECTION -->
-    <section class="filters-section">
+    <!-- OFFER HEADER -->
+    <section class="offer-header">
         <div class="container">
-            <div class="filters-card">
-                <h3><i class="fas fa-filter"></i> Filtres de recherche</h3>
-                <div class="filter-grid">
-                    <div class="filter-group">
-                        <label>Département</label>
-                        <select>
-                            <option value="">Tous les départements</option>
-                            <option value="electrique">Génie Électrique</option>
-                            <option value="mecanique">Génie Mécanique</option>
-                            <option value="informatique">Informatique</option>
-                            <option value="civil">Génie Civil</option>
-                        </select>
+            <div class="offer-title-section">
+                <h1 class="offer-title">Enseignant en Génie Électrique</h1>
+                <div class="offer-meta">
+                    <div class="meta-item">
+                        <i class="fas fa-building"></i> Département Génie Électrique
                     </div>
-                    <div class="filter-group">
-                        <label>Type de contrat</label>
-                        <select>
-                            <option value="">Tous les contrats</option>
-                            <option value="cdi">CDI</option>
-                            <option value="cdd">CDD</option>
-                            <option value="temps-plein">Temps plein</option>
-                            <option value="temps-partiel">Temps partiel</option>
-                        </select>
+                    <div class="meta-item">
+                        <i class="fas fa-clock"></i> Temps plein
                     </div>
-                    <div class="filter-group">
-                        <label>Date limite</label>
-                        <select>
-                            <option value="">Toutes les dates</option>
-                            <option value="7">7 prochains jours</option>
-                            <option value="30">30 prochains jours</option>
-                            <option value="90">3 prochains mois</option>
-                        </select>
+                    <div class="meta-item">
+                        <i class="fas fa-map-marker-alt"></i> Lokossa, Bénin
                     </div>
-                    <button class="btn-apply-filter">
-                        <i class="fas fa-search"></i> Appliquer les filtres
-                    </button>
+                </div>
+                <div class="offer-availability">
+                    <i class="fas fa-briefcase"></i> 2 Postes disponibles
+                </div>
+            </div>
+
+            <div class="date-info">
+                <div class="publication-date">
+                    <div class="date-label">Publié le</div>
+                    <div class="date-value">1er Décembre 2024</div>
+                </div>
+                <div class="deadline-date">
+                    <div class="date-label">Date limite de candidature</div>
+                    <div class="date-value">15 Janvier 2025</div>
+                    <div class="deadline-remaining">
+                        <i class="fas fa-clock"></i>
+                        <span>il reste 9 jours</span>
+                    </div>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- OFFERS LIST -->
-    <section class="offers-list-section">
+    <!-- OFFER CONTENT GRID -->
+    <div class="offer-content-grid">
         <div class="container">
-            <div class="section-header">
-                <h2><i class="fas fa-briefcase"></i> Offres disponibles (24)</h2>
-                <div class="sort-options">
-                    <span>Trier par :</span>
-                    <select>
-                        <option value="date">Date de publication</option>
-                        <option value="deadline">Date limite</option>
-                        <option value="department">Département</option>
-                    </select>
-                </div>
+            <div class="offer-main-content">
+                <!-- DESCRIPTION SECTION -->
+                <section class="content-section">
+                    <h2 class="section-title">
+                        <i class="fas fa-file-alt"></i> Description du poste
+                    </h2>
+                    <div class="description-text">
+                        <p>L'Institut National Supérieur de Technologie Industrielle de Lokossa (INSTI) recrute un enseignant qualifié en Génie Électrique pour renforcer son équipe pédagogique et contribuer à la formation d'excellence de nos étudiants.</p>
+                        <p>Le candidat retenu sera responsable de l'enseignement des cours théoriques et pratiques en génie électrique, de l'encadrement des travaux dirigés et pratiques, ainsi que de la supervision des projets d'étudiants.</p>
+                        <p>Il/Elle participera également aux activités de recherche du département et contribuera au développement de partenariats avec le secteur industriel.</p>
+                    </div>
+                </section>
+
+                <!-- MISSIONS SECTION -->
+                <section class="content-section">
+                    <h2 class="section-title">
+                        <i class="fas fa-tasks"></i> Missions principales
+                    </h2>
+                    <ul class="missions-list">
+                        <li>Assurer les cours magistraux, travaux dirigés et travaux pratiques</li>
+                        <li>Encadrer et superviser les projets et mémoires d'étudiants</li>
+                        <li>Participer aux activités de recherche du département</li>
+                        <li>Contribuer au développement et à la mise à jour des programmes pédagogiques</li>
+                        <li>Participer aux examens et jurys de délibération</li>
+                        <li>Assurer une veille technologique dans son domaine de spécialité</li>
+                        <li>Développer des partenariats avec le secteur industriel</li>
+                    </ul>
+                </section>
+
+                <!-- PROFILE SECTION -->
+                <section class="content-section">
+                    <h2 class="section-title">
+                        <i class="fas fa-user-graduate"></i> Profil Recherché
+                    </h2>
+
+                    <div class="requirements-category">
+                        <h4><i class="fas fa-graduation-cap"></i> Formation requise</h4>
+                        <ul class="requirements-list">
+                            <li>Doctorat (PhD) en Génie Électrique ou domaine connexe</li>
+                            <li>Master avec expérience significative sera considéré</li>
+                        </ul>
+                    </div>
+
+                    <div class="requirements-category">
+                        <h4><i class="fas fa-briefcase"></i> Expérience</h4>
+                        <ul class="requirements-list">
+                            <li>Minimum 3 ans d'expérience dans l'enseignement supérieur</li>
+                            <li>Expérience en recherche avec publications dans des revues internationales</li>
+                            <li>Expérience en encadrement de projets d'étudiants</li>
+                        </ul>
+                    </div>
+
+                    <div class="requirements-category">
+                        <h4><i class="fas fa-cogs"></i> Compétences</h4>
+                        <ul class="requirements-list">
+                            <li>Excellentes capacités pédagogiques et de communication</li>
+                            <li>Anglais ou français obligatoires et l'autre souhaité</li>
+                            <li>Compétence en gestion de projets</li>
+                            <li>Aptitude au travail en équipe</li>
+                            <li>Sens de l'innovation pédagogique</li>
+                        </ul>
+                    </div>
+                </section>
+
+                <!-- DOCUMENTS SECTION -->
+                <section class="content-section">
+                    <h2 class="section-title">
+                        <i class="fas fa-file-upload"></i> Documents à fournir
+                    </h2>
+                    <ul class="documents-list">
+                        <li>Curriculum vitae détaillé</li>
+                        <li>Lettre de motivation</li>
+                        <li>Copies certifiées des diplômes</li>
+                        <li>Attestation de travail</li>
+                        <li>Liste des publications scientifiques</li>
+                        <li>Deux lettres de recommandation</li>
+                        <li>Copie de la pièce d'identité</li>
+                    </ul>
+                </section>
             </div>
 
-            <div class="offers-list">
-                <!-- Offer Item 1 -->
-                <div class="offer-item">
-                    <div class="offer-badge">Nouveau</div>
-                    <div class="offer-content">
-                        <h3 class="offer-title">Enseignant en Génie Électrique</h3>
-                        <div class="offer-meta">
-                            <span><i class="fas fa-building"></i> Département Génie Électrique</span>
-                            <span><i class="fas fa-clock"></i> Temps plein</span>
-                            <span><i class="fas fa-map-marker-alt"></i> Lokossa, Bénin</span>
-                        </div>
-                        <p class="offer-description">
-                            Enseignement des cours théoriques et pratiques en génie électrique, encadrement des travaux dirigés...
-                        </p>
-                        <div class="offer-footer">
-                            <div class="deadline">
-                                <i class="fas fa-calendar-alt"></i>
-                                Date limite : <strong>15 Janvier 2025</strong>
+            <!-- SIDEBAR -->
+            <div class="offer-sidebar">
+                <!-- STATUS & ACTIONS -->
+                <section class="status-actions">
+                    <div class="status-badge-large">
+                        <i class="fas fa-check-circle"></i> Offre ouverte aux candidatures
+                    </div>
+
+                    <div class="actions-buttons">
+                        @auth
+                            <a href="{{ route('teacher.application.form', ['offer_id' => 1]) }}" class="apply-button" id="applyButton">
+                                <i class="fas fa-paper-plane"></i> Postuler maintenant
+                            </a>
+                        @else
+                            <a href="{{ route('login') }}" class="apply-button" id="applyButton">
+                                <i class="fas fa-paper-plane"></i> Connectez-vous pour postuler
+                            </a>
+                        @endauth
+
+                        <a href="#" class="save-button" id="saveButton">
+                            <i class="far fa-bookmark"></i> Sauvegarder l'offre
+                        </a>
+                    </div>
+
+                    <!-- APPLICATION ALERT -->
+                    <div class="application-alert" id="applicationAlert">
+                        <!-- Alert messages will appear here -->
+                    </div>
+                </section>
+
+                <!-- OFFER INFO -->
+                <section class="offer-info">
+                    <h3 class="section-title">
+                        <i class="fas fa-info-circle"></i> Informations
+                    </h3>
+
+                    <div class="info-item">
+                        <span class="info-label">Référence</span>
+                        <span class="info-value">INSTI-2025-GE-001</span>
+                    </div>
+
+                    <div class="info-item">
+                        <span class="info-label">Type de contrat</span>
+                        <span class="info-value">CDI - Temps plein</span>
+                    </div>
+
+                    <div class="info-item">
+                        <span class="info-label">Lieu de travail</span>
+                        <span class="info-value">Campus INSTI - Lokossa</span>
+                    </div>
+
+                    <div class="info-item">
+                        <span class="info-label">Salaire</span>
+                        <span class="info-value">Selon grille de la Fonction Publique</span>
+                    </div>
+
+                    <div class="info-item">
+                        <span class="info-label">Prise de fonction</span>
+                        <span class="info-value">Septembre 2025</span>
+                    </div>
+                </section>
+
+                <!-- CONTACT INFO -->
+                <section class="contact-info-sidebar">
+                    <h3><i class="fas fa-headset"></i> Contact</h3>
+                    <p style="margin-bottom: 20px; opacity: 0.9; font-size: 14px;">
+                        Pour toute information concernant cette offre, contactez :
+                    </p>
+
+                    <div class="contact-details">
+                        <div class="contact-item">
+                            <div class="contact-icon">
+                                <i class="fas fa-envelope"></i>
                             </div>
-                            <div class="offer-actions">
-                                <span class="post-count">2 Postes</span>
-                                <a href="{{ route('offers.details', ['id' => 1]) }}" class="btn-details">Voir détails</a>
+                            <div class="contact-text">
+                                <strong>Email</strong>
+                                <span>recruitment@insti.bj</span>
+                            </div>
+                        </div>
+
+                        <div class="contact-item">
+                            <div class="contact-icon">
+                                <i class="fas fa-phone"></i>
+                            </div>
+                            <div class="contact-text">
+                                <strong>Téléphone</strong>
+                                <span>(+229) 21 91 66 66</span>
+                            </div>
+                        </div>
+
+                        <div class="contact-item">
+                            <div class="contact-icon">
+                                <i class="fas fa-clock"></i>
+                            </div>
+                            <div class="contact-text">
+                                <strong>Horaires</strong>
+                                <span>Lun - Ven: 8h - 17h</span>
                             </div>
                         </div>
                     </div>
-                </div>
-
-                <!-- Offer Item 2 -->
-                <div class="offer-item">
-                    <div class="offer-badge">Urgent</div>
-                    <div class="offer-content">
-                        <h3 class="offer-title">Enseignant en Informatique et Réseaux</h3>
-                        <div class="offer-meta">
-                            <span><i class="fas fa-building"></i> Département Informatique</span>
-                            <span><i class="fas fa-clock"></i> Temps plein</span>
-                            <span><i class="fas fa-map-marker-alt"></i> Lokossa, Bénin</span>
-                        </div>
-                        <p class="offer-description">
-                            Enseignement des cours d'informatique, réseaux et systèmes d'information, développement d'applications...
-                        </p>
-                        <div class="offer-footer">
-                            <div class="deadline">
-                                <i class="fas fa-calendar-alt"></i>
-                                Date limite : <strong>31 Janvier 2025</strong>
-                            </div>
-                            <div class="offer-actions">
-                                <span class="post-count">2 Postes</span>
-                                <a href="{{ route('offers.details', ['id' => 2]) }}" class="btn-details">Voir détails</a>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- Offer Item 3 -->
-                <div class="offer-item">
-                    <div class="offer-badge">Recrutement</div>
-                    <div class="offer-content">
-                        <h3 class="offer-title">Enseignant en Génie Mécanique</h3>
-                        <div class="offer-meta">
-                            <span><i class="fas fa-building"></i> Département Génie Mécanique</span>
-                            <span><i class="fas fa-clock"></i> Temps plein</span>
-                            <span><i class="fas fa-map-marker-alt"></i> Lokossa, Bénin</span>
-                        </div>
-                        <p class="offer-description">
-                            Enseignement des cours de mécanique, thermodynamique, conception mécanique, et encadrement des projets...
-                        </p>
-                        <div class="offer-footer">
-                            <div class="deadline">
-                                <i class="fas fa-calendar-alt"></i>
-                                Date limite : <strong>26 Janvier 2025</strong>
-                            </div>
-                            <div class="offer-actions">
-                                <span class="post-count">2 Postes</span>
-                                <a href="{{ route('offers.details', ['id' => 3]) }}" class="btn-details">Voir détails</a>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- Offer Item 4 -->
-                <div class="offer-item">
-                    <div class="offer-badge">Nouveau</div>
-                    <div class="offer-content">
-                        <h3 class="offer-title">Enseignant en Mathématiques Appliquées</h3>
-                        <div class="offer-meta">
-                            <span><i class="fas fa-building"></i> Département Science Fondamentale</span>
-                            <span><i class="fas fa-clock"></i> Temps plein</span>
-                            <span><i class="fas fa-map-marker-alt"></i> Lokossa, Bénin</span>
-                        </div>
-                        <p class="offer-description">
-                            Enseignement des mathématiques appliquées, algèbre linéaire, analyse numérique, et statistiques...
-                        </p>
-                        <div class="offer-footer">
-                            <div class="deadline">
-                                <i class="fas fa-calendar-alt"></i>
-                                Date limite : <strong>20 Février 2025</strong>
-                            </div>
-                            <div class="offer-actions">
-                                <span class="post-count">1 Poste</span>
-                                <a href="{{ route('offers.details', ['id' => 4]) }}" class="btn-details">Voir détails</a>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-
-            <!-- PAGINATION -->
-            <div class="pagination">
-                <a href="#" class="page-link active">1</a>
-                <a href="#" class="page-link">2</a>
-                <a href="#" class="page-link">3</a>
-                <span class="page-dots">...</span>
-                <a href="#" class="page-link">10</a>
-                <a href="#" class="page-link next">
-                    Suivant <i class="fas fa-chevron-right"></i>
-                </a>
+                </section>
             </div>
         </div>
-    </section>
-
-    <!-- CTA SECTION -->
-    <section class="cta-section">
-        <div class="container">
-            <div class="cta-content">
-                <h2>Vous ne trouvez pas l'offre qui vous correspond ?</h2>
-                <p>Inscrivez-vous pour être alerté des nouvelles offres correspondant à votre profil.</p>
-                <div class="cta-buttons">
-                    <a href="{{ route('register') }}" class="btn-primary">
-                        <i class="fas fa-user-plus"></i> Créer un compte
-                    </a>
-                    <a href="{{ route('login') }}" class="btn-secondary">
-                        <i class="fas fa-sign-in-alt"></i> Se connecter
-                    </a>
-                </div>
-            </div>
-        </div>
-    </section>
+    </div>
 @endsection
+
+@push('scripts')
+<script>
+    const menuToggle = document.getElementById('menuToggle');
+    const headerMenu = document.querySelector('.header-menu');
+
+    if (menuToggle && headerMenu) {
+        menuToggle.addEventListener('click', () => {
+            headerMenu.classList.toggle('active');
+        });
+    }
+
+    // Application button logic
+    const applyButton = document.getElementById('applyButton');
+    const saveButton = document.getElementById('saveButton');
+    const applicationAlert = document.getElementById('applicationAlert');
+
+    if (applyButton) {
+        applyButton.addEventListener('click', function(e) {
+            if (!this.href.includes('application/form')) {
+                e.preventDefault();
+                showAlert('Connectez-vous pour postuler à cette offre.', 'warning');
+            }
+        });
+    }
+
+    if (saveButton) {
+        saveButton.addEventListener('click', function(e) {
+            e.preventDefault();
+            showAlert('Offre sauvegardée dans vos favoris.', 'success');
+            this.innerHTML = '<i class="fas fa-bookmark"></i> Sauvegardée';
+            this.classList.add('saved');
+        });
+    }
+
+    function showAlert(message, type) {
+        if (applicationAlert) {
+            applicationAlert.innerHTML = `
+                <div class="alert alert-${type}">
+                    <i class="fas fa-${type === 'success' ? 'check-circle' : 'exclamation-triangle'}"></i>
+                    ${message}
+                </div>
+            `;
+            setTimeout(() => {
+                applicationAlert.innerHTML = '';
+            }, 5000);
+        }
+    }
+</script>
+@endpush
