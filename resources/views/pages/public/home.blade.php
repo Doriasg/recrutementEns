@@ -1,6 +1,12 @@
 @extends('layouts.public')
 
 @section('title', 'INSTI - Recrutement Enseignants')
+
+@push('styles')
+    <!-- CSS spécifique à cette page -->
+    <link rel="stylesheet" href="{{ asset('css/pages/public/home.css') }}">
+@endpush
+
 @section('content')
     <!-- HERO SECTION -->
     <section class="hero-section">
@@ -105,6 +111,7 @@
                 </div>
             </div>
         </div>
+
         <div class="view-all-offers">
             <a href="#" class="view-all-link">
                 Voir toutes les offres
@@ -193,23 +200,27 @@
 @endsection
 
 @push('scripts')
-<script>
-    document.addEventListener('DOMContentLoaded', function() {
-        const heroSection = document.querySelector('.hero-section');
-        const images = [
-            '{{ asset("assets/images/hero1.jpeg") }}',
-            '{{ asset("assets/images/hero2.jpeg") }}',
-            '{{ asset("assets/images/hero3.jpg") }}'
-        ];
-        let currentIndex = 0;
+    <!-- JS spécifique à cette page -->
+    <script src="{{ asset('js/pages/public/home.js') }}"></script>
 
-        function changeBackground() {
-            heroSection.style.backgroundImage = `url('${images[currentIndex]}')`;
-            currentIndex = (currentIndex + 1) % images.length;
-        }
+    <!-- JS inline pour le slider du hero -->
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            const heroSection = document.querySelector('.hero-section');
+            const images = [
+                '{{ asset("assets/images/hero1.jpeg") }}',
+                '{{ asset("assets/images/hero2.jpeg") }}',
+                '{{ asset("assets/images/hero3.jpg") }}'
+            ];
+            let currentIndex = 0;
 
-        changeBackground();
-        setInterval(changeBackground, 30000);
-    });
-</script>
+            function changeBackground() {
+                heroSection.style.backgroundImage = `url('${images[currentIndex]}')`;
+                currentIndex = (currentIndex + 1) % images.length;
+            }
+
+            changeBackground();
+            setInterval(changeBackground, 30000);
+        });
+    </script>
 @endpush
