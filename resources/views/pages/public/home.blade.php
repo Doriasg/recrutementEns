@@ -2,7 +2,7 @@
 
 @section('title', 'INSTI - Recrutement Enseignants')
 
-@push('styles')
+@push('page-styles')
     <!-- CSS spécifique à cette page -->
     <link rel="stylesheet" href="{{ asset('css/pages/public/home.css') }}">
 @endpush
@@ -199,7 +199,7 @@
     </section>
 @endsection
 
-@push('scripts')
+@push('page-scripts')
     <!-- JS spécifique à cette page -->
     <script src="{{ asset('js/pages/public/home.js') }}"></script>
 
