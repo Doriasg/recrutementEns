@@ -2,6 +2,11 @@
 
 @section('title', 'INSTI - Détails de l\'Offre')
 
+@push('styles')
+    <!-- CSS spécifique à cette page -->
+    <link rel="stylesheet" href="{{ asset('css/pages/public/offre-details.css') }}">
+@endpush
+
 @section('content')
     <!-- BACK LINK -->
     <div class="back-link">
@@ -75,9 +80,9 @@
                         <li>Assurer les cours magistraux, travaux dirigés et travaux pratiques</li>
                         <li>Encadrer et superviser les projets et mémoires d'étudiants</li>
                         <li>Participer aux activités de recherche du département</li>
-                        <li>Contribuer au développement et à la mise à jour des programmes pédagogiques</li>
+                        <li>Contribuer aux programmes pédagogiques</li>
                         <li>Participer aux examens et jurys de délibération</li>
-                        <li>Assurer une veille technologique dans son domaine de spécialité</li>
+                        <li>Assurer une veille technologique</li>
                         <li>Développer des partenariats avec le secteur industriel</li>
                     </ul>
                 </section>
@@ -100,7 +105,7 @@
                         <h4><i class="fas fa-briefcase"></i> Expérience</h4>
                         <ul class="requirements-list">
                             <li>Minimum 3 ans d'expérience dans l'enseignement supérieur</li>
-                            <li>Expérience en recherche avec publications dans des revues internationales</li>
+                            <li>Expérience en recherche avec publications internationales</li>
                             <li>Expérience en encadrement de projets d'étudiants</li>
                         </ul>
                     </div>
@@ -109,8 +114,8 @@
                         <h4><i class="fas fa-cogs"></i> Compétences</h4>
                         <ul class="requirements-list">
                             <li>Excellentes capacités pédagogiques et de communication</li>
-                            <li>Anglais ou français obligatoires et l'autre souhaité</li>
-                            <li>Compétence en gestion de projets</li>
+                            <li>Anglais ou français obligatoires, l'autre souhaité</li>
+                            <li>Compétences en gestion de projets</li>
                             <li>Aptitude au travail en équipe</li>
                             <li>Sens de l'innovation pédagogique</li>
                         </ul>
@@ -136,7 +141,6 @@
 
             <!-- SIDEBAR -->
             <div class="offer-sidebar">
-                <!-- STATUS & ACTIONS -->
                 <section class="status-actions">
                     <div class="status-badge-large">
                         <i class="fas fa-check-circle"></i> Offre ouverte aux candidatures
@@ -158,10 +162,7 @@
                         </a>
                     </div>
 
-                    <!-- APPLICATION ALERT -->
-                    <div class="application-alert" id="applicationAlert">
-                        <!-- Alert messages will appear here -->
-                    </div>
+                    <div class="application-alert" id="applicationAlert"></div>
                 </section>
 
                 <!-- OFFER INFO -->
@@ -169,69 +170,29 @@
                     <h3 class="section-title">
                         <i class="fas fa-info-circle"></i> Informations
                     </h3>
-
-                    <div class="info-item">
-                        <span class="info-label">Référence</span>
-                        <span class="info-value">INSTI-2025-GE-001</span>
-                    </div>
-
-                    <div class="info-item">
-                        <span class="info-label">Type de contrat</span>
-                        <span class="info-value">CDI - Temps plein</span>
-                    </div>
-
-                    <div class="info-item">
-                        <span class="info-label">Lieu de travail</span>
-                        <span class="info-value">Campus INSTI - Lokossa</span>
-                    </div>
-
-                    <div class="info-item">
-                        <span class="info-label">Salaire</span>
-                        <span class="info-value">Selon grille de la Fonction Publique</span>
-                    </div>
-
-                    <div class="info-item">
-                        <span class="info-label">Prise de fonction</span>
-                        <span class="info-value">Septembre 2025</span>
-                    </div>
+                    <div class="info-item"><span class="info-label">Référence</span><span class="info-value">INSTI-2025-GE-001</span></div>
+                    <div class="info-item"><span class="info-label">Type de contrat</span><span class="info-value">CDI - Temps plein</span></div>
+                    <div class="info-item"><span class="info-label">Lieu de travail</span><span class="info-value">Campus INSTI - Lokossa</span></div>
+                    <div class="info-item"><span class="info-label">Salaire</span><span class="info-value">Selon grille de la Fonction Publique</span></div>
+                    <div class="info-item"><span class="info-label">Prise de fonction</span><span class="info-value">Septembre 2025</span></div>
                 </section>
 
                 <!-- CONTACT INFO -->
                 <section class="contact-info-sidebar">
                     <h3><i class="fas fa-headset"></i> Contact</h3>
-                    <p style="margin-bottom: 20px; opacity: 0.9; font-size: 14px;">
-                        Pour toute information concernant cette offre, contactez :
-                    </p>
-
+                    <p>Pour toute information concernant cette offre, contactez :</p>
                     <div class="contact-details">
                         <div class="contact-item">
-                            <div class="contact-icon">
-                                <i class="fas fa-envelope"></i>
-                            </div>
-                            <div class="contact-text">
-                                <strong>Email</strong>
-                                <span>recruitment@insti.bj</span>
-                            </div>
+                            <div class="contact-icon"><i class="fas fa-envelope"></i></div>
+                            <div class="contact-text"><strong>Email</strong><span>recruitment@insti.bj</span></div>
                         </div>
-
                         <div class="contact-item">
-                            <div class="contact-icon">
-                                <i class="fas fa-phone"></i>
-                            </div>
-                            <div class="contact-text">
-                                <strong>Téléphone</strong>
-                                <span>(+229) 21 91 66 66</span>
-                            </div>
+                            <div class="contact-icon"><i class="fas fa-phone"></i></div>
+                            <div class="contact-text"><strong>Téléphone</strong><span>(+229) 21 91 66 66</span></div>
                         </div>
-
                         <div class="contact-item">
-                            <div class="contact-icon">
-                                <i class="fas fa-clock"></i>
-                            </div>
-                            <div class="contact-text">
-                                <strong>Horaires</strong>
-                                <span>Lun - Ven: 8h - 17h</span>
-                            </div>
+                            <div class="contact-icon"><i class="fas fa-clock"></i></div>
+                            <div class="contact-text"><strong>Horaires</strong><span>Lun - Ven: 8h - 17h</span></div>
                         </div>
                     </div>
                 </section>
@@ -241,51 +202,52 @@
 @endsection
 
 @push('scripts')
-<script>
-    const menuToggle = document.getElementById('menuToggle');
-    const headerMenu = document.querySelector('.header-menu');
+    <!-- JS spécifique à cette page -->
+    <script src="{{ asset('js/pages/public/offre-details.js') }}"></script>
 
-    if (menuToggle && headerMenu) {
-        menuToggle.addEventListener('click', () => {
-            headerMenu.classList.toggle('active');
-        });
-    }
+    <!-- JS inline pour boutons application et sauvegarde -->
+    <script>
+        const menuToggle = document.getElementById('menuToggle');
+        const headerMenu = document.querySelector('.header-menu');
 
-    // Application button logic
-    const applyButton = document.getElementById('applyButton');
-    const saveButton = document.getElementById('saveButton');
-    const applicationAlert = document.getElementById('applicationAlert');
-
-    if (applyButton) {
-        applyButton.addEventListener('click', function(e) {
-            if (!this.href.includes('application/form')) {
-                e.preventDefault();
-                showAlert('Connectez-vous pour postuler à cette offre.', 'warning');
-            }
-        });
-    }
-
-    if (saveButton) {
-        saveButton.addEventListener('click', function(e) {
-            e.preventDefault();
-            showAlert('Offre sauvegardée dans vos favoris.', 'success');
-            this.innerHTML = '<i class="fas fa-bookmark"></i> Sauvegardée';
-            this.classList.add('saved');
-        });
-    }
-
-    function showAlert(message, type) {
-        if (applicationAlert) {
-            applicationAlert.innerHTML = `
-                <div class="alert alert-${type}">
-                    <i class="fas fa-${type === 'success' ? 'check-circle' : 'exclamation-triangle'}"></i>
-                    ${message}
-                </div>
-            `;
-            setTimeout(() => {
-                applicationAlert.innerHTML = '';
-            }, 5000);
+        if (menuToggle && headerMenu) {
+            menuToggle.addEventListener('click', () => {
+                headerMenu.classList.toggle('active');
+            });
         }
-    }
-</script>
+
+        const applyButton = document.getElementById('applyButton');
+        const saveButton = document.getElementById('saveButton');
+        const applicationAlert = document.getElementById('applicationAlert');
+
+        function showAlert(message, type) {
+            if (applicationAlert) {
+                applicationAlert.innerHTML = `
+                    <div class="alert alert-${type}">
+                        <i class="fas fa-${type === 'success' ? 'check-circle' : 'exclamation-triangle'}"></i>
+                        ${message}
+                    </div>
+                `;
+                setTimeout(() => { applicationAlert.innerHTML = ''; }, 5000);
+            }
+        }
+
+        if (applyButton) {
+            applyButton.addEventListener('click', function(e) {
+                if (!this.href.includes('application/form')) {
+                    e.preventDefault();
+                    showAlert('Connectez-vous pour postuler à cette offre.', 'warning');
+                }
+            });
+        }
+
+        if (saveButton) {
+            saveButton.addEventListener('click', function(e) {
+                e.preventDefault();
+                showAlert('Offre sauvegardée dans vos favoris.', 'success');
+                this.innerHTML = '<i class="fas fa-bookmark"></i> Sauvegardée';
+                this.classList.add('saved');
+            });
+        }
+    </script>
 @endpush

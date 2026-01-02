@@ -1,4 +1,3 @@
-
 <!DOCTYPE html>
 <html lang="fr">
 <head>
@@ -9,18 +8,21 @@
     <!-- Font Awesome -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
     
-    <!-- Fonts -->
+    <!-- Google Fonts -->
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&display=swap" rel="stylesheet">
     
-    <!-- Styles -->
+    <!-- CSS Global -->
     <link rel="stylesheet" href="{{ asset('css/app.css') }}">
+    
+    <!-- CSS Layout public -->
     <link rel="stylesheet" href="{{ asset('css/layouts/public.css') }}">
-    <link rel="stylesheet" href="{{ asset('css/layouts/pages/public/home.css') }}">
-    <link rel="stylesheet" href="{{ asset('css/layouts/pages/public/offes.css') }}">
-    <link rel="stylesheet" href="{{ asset('css/layouts/pages/public/offre-details.css') }}">
+    
+    <!-- CSS Partials -->
+    <link rel="stylesheet" href="{{ asset('css/partials/header.css') }}">
     <link rel="stylesheet" href="{{ asset('css/partials/footer.css') }}">
-     <link rel="stylesheet" href="{{ asset('css/partials/header.css') }}">
-      <link rel="stylesheet" href="{{ asset('css/partials/sidebar.css') }}">
+    <link rel="stylesheet" href="{{ asset('css/partials/sidebar.css') }}">
+    
+    <!-- CSS Page spécifique -->
     @stack('styles')
 </head>
 <body>
@@ -38,10 +40,13 @@
     <!-- Footer -->
     @include('partials.footer')
     
-    <!-- Scripts -->
+    <!-- JS Global -->
     <script src="{{ asset('js/app.js') }}"></script>
+    
+    <!-- JS Layout public -->
     <script src="{{ asset('js/layouts/public.js') }}"></script>
+    
+    <!-- JS Page spécifique -->
     @stack('scripts')
 </body>
 </html>
-
