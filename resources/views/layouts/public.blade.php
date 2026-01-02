@@ -10,20 +10,18 @@
     
     <!-- Google Fonts -->
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&display=swap" rel="stylesheet">
-    
-    <!-- CSS Global -->
+
+    <!-- Styles globaux -->
     <link rel="stylesheet" href="{{ asset('css/app.css') }}">
-    
-    <!-- CSS Layout public -->
     <link rel="stylesheet" href="{{ asset('css/layouts/public.css') }}">
-    
-    <!-- CSS Partials -->
+
+    <!-- Styles des partials (header, footer, sidebar) -->
     <link rel="stylesheet" href="{{ asset('css/partials/header.css') }}">
     <link rel="stylesheet" href="{{ asset('css/partials/footer.css') }}">
     <link rel="stylesheet" href="{{ asset('css/partials/sidebar.css') }}">
-    
-    <!-- CSS Page spécifique -->
-    @stack('styles')
+
+    <!-- Styles spécifiques aux pages -->
+    @stack('page-styles')
 </head>
 <body>
     <!-- Top Line -->
@@ -40,13 +38,11 @@
     <!-- Footer -->
     @include('partials.footer')
     
-    <!-- JS Global -->
+    <!-- Scripts globaux -->
     <script src="{{ asset('js/app.js') }}"></script>
-    
-    <!-- JS Layout public -->
     <script src="{{ asset('js/layouts/public.js') }}"></script>
-    
-    <!-- JS Page spécifique -->
-    @stack('scripts')
+
+    <!-- Scripts spécifiques aux pages -->
+    @stack('page-scripts')
 </body>
 </html>
