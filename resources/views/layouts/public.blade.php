@@ -15,6 +15,12 @@
     <!-- Styles -->
     <link rel="stylesheet" href="{{ asset('css/app.css') }}">
     <link rel="stylesheet" href="{{ asset('css/layouts/public.css') }}">
+    <link rel="stylesheet" href="{{ asset('css/layouts/pages/public/home.css') }}">
+    <link rel="stylesheet" href="{{ asset('css/layouts/pages/public/offes.css') }}">
+    <link rel="stylesheet" href="{{ asset('css/layouts/pages/public/offre-details.css') }}">
+    <link rel="stylesheet" href="{{ asset('css/partials/footer.css') }}">
+     <link rel="stylesheet" href="{{ asset('css/partials/header.css') }}">
+      <link rel="stylesheet" href="{{ asset('css/partials/sidebar.css') }}">
     @stack('styles')
 </head>
 <body>

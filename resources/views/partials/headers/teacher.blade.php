@@ -39,13 +39,13 @@
 
         <div class="header-menu">
             <nav>
-                <a href="{{ route('teacher.dashboard') }}" class="{{ request()->routeIs('teacher.dashboard') ? 'active' : '' }}">TABLEAU DE BORD</a>
-                <a href="{{ route('teacher.offers') }}">OFFRES</a>
-                <a href="{{ route('teacher.profile') }}" class="{{ request()->routeIs('teacher.profile') ? 'active' : '' }}">PROFIL</a>
-                <a href="{{ route('teacher.applications') }}" class="{{ request()->routeIs('teacher.applications') ? 'active' : '' }}">MES CANDIDATURES</a>
-                <a href="{{ route('teacher.documents') }}">DOCUMENTS</a>
-                <a href="{{ route('logout') }}" onclick="event.preventDefault(); document.getElementById('logout-form').submit();">DÉCONNEXION</a>
-                <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
+                <a href="#" class="{{ request()->routeIs('teacher.dashboard') ? 'active' : '' }}">TABLEAU DE BORD</a>
+                <a href="#">OFFRES</a>
+                <a href="#" class="{{ request()->routeIs('teacher.profile') ? 'active' : '' }}">PROFIL</a>
+                <a href="#" class="{{ request()->routeIs('teacher.applications') ? 'active' : '' }}">MES CANDIDATURES</a>
+                <a href="#">DOCUMENTS</a>
+                <a href="#" onclick="event.preventDefault(); document.getElementById('logout-form').submit();">DÉCONNEXION</a>
+                <form id="logout-form" action="#" method="POST" style="display: none;">
                     @csrf
                 </form>
             </nav>

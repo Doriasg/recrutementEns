@@ -58,7 +58,7 @@
         <section class="applications-section">
             <div class="section-header">
                 <h2>Mes candidatures récentes</h2>
-                <a href="{{ route('teacher.applications') }}" class="view-all">
+                <a href="#" class="view-all">
                     Voir toutes
                     <i class="fas fa-arrow-right"></i>
                 </a>
@@ -118,7 +118,7 @@
                 </h3>
 
                 <div class="actions-list">
-                    <a href="{{ route('teacher.offers') }}" class="action-item">
+                    <a href="#" class="action-item">
                         <div class="action-icon">
                             <i class="fas fa-search"></i>
                         </div>
@@ -128,7 +128,7 @@
                         </div>
                     </a>
 
-                    <a href="{{ route('teacher.profile') }}" class="action-item active">
+                    <a href="#" class="action-item active">
                         <div class="action-icon">
                             <i class="fas fa-user"></i>
                         </div>
@@ -138,7 +138,7 @@
                         </div>
                     </a>
 
-                    <a href="{{ route('teacher.documents') }}" class="action-item">
+                    <a href="#" class="action-item">
                         <div class="action-icon">
                             <i class="fas fa-folder"></i>
                         </div>
@@ -197,7 +197,7 @@
                     </div>
                 </div>
 
-                <a href="{{ route('teacher.notifications') }}" class="view-all-notifications">
+                <a href="#" class="view-all-notifications">
                     Voir toutes les notifications <i class="fas fa-arrow-right"></i>
                 </a>
             </section>

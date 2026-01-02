@@ -12,7 +12,7 @@
     </section>
 
     <!-- OFFRES SECTION -->
-    <section class="offers-section">
+    <section class="offers-section" id="offres">
         <div class="offers-header">
             <h2>Offres d'emploi actuelles</h2>
             <p>Consultez les postes disponibles et postulez en ligne.</p>

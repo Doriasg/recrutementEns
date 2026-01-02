@@ -20,40 +20,40 @@
                 </a>
             </li>
             <li>
-                <a href="{{ route('teacher.offers') }}" class="{{ request()->routeIs('teacher.offers') ? 'active' : '' }}">
+                <a href="#" class="{{ request()->routeIs('teacher.offers') ? 'active' : '' }}">
                     <i class="fas fa-briefcase"></i>
                     <span>Offres d'emploi</span>
                 </a>
             </li>
             <li>
-                <a href="{{ route('teacher.applications') }}" class="{{ request()->routeIs('teacher.applications') ? 'active' : '' }}">
+                <a href="#" class="{{ request()->routeIs('teacher.applications') ? 'active' : '' }}">
                     <i class="fas fa-file-alt"></i>
                     <span>Mes candidatures</span>
                     <span class="badge">3</span>
                 </a>
             </li>
             <li>
-                <a href="{{ route('teacher.profile') }}" class="{{ request()->routeIs('teacher.profile') ? 'active' : '' }}">
+                <a href="#" class="{{ request()->routeIs('teacher.profile') ? 'active' : '' }}">
                     <i class="fas fa-user-circle"></i>
                     <span>Mon profil</span>
                     <span class="progress-tag">85%</span>
                 </a>
             </li>
             <li>
-                <a href="{{ route('teacher.documents') }}">
+                <a href="#">
                     <i class="fas fa-folder"></i>
                     <span>Documents</span>
                 </a>
             </li>
             <li>
-                <a href="{{ route('teacher.messages') }}">
+                <a href="#">
                     <i class="fas fa-envelope"></i>
                     <span>Messages</span>
                     <span class="badge">2</span>
                 </a>
             </li>
-            <li>
-                <a href="{{ route('teacher.settings') }}">
+                <li>
+                    <a href="#">
                     <i class="fas fa-cog"></i>
                     <span>Paramètres</span>
                 </a>
