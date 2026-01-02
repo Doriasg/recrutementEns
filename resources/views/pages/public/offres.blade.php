@@ -2,6 +2,11 @@
 
 @section('title', 'INSTI - Offres d\'Emploi')
 
+@push('styles')
+    <!-- CSS spécifique à cette page -->
+    <link rel="stylesheet" href="{{ asset('css/pages/public/offers.css') }}">
+@endpush
+
 @section('content')
     <!-- HERO HEADER -->
     <div class="hero-header">
@@ -70,121 +75,36 @@
             </div>
 
             <div class="offers-list">
-                <!-- Offer Item 1 -->
-                <div class="offer-item">
-                    <div class="offer-badge">Nouveau</div>
-                    <div class="offer-content">
-                        <h3 class="offer-title">Enseignant en Génie Électrique</h3>
-                        <div class="offer-meta">
-                            <span><i class="fas fa-building"></i> Département Génie Électrique</span>
-                            <span><i class="fas fa-clock"></i> Temps plein</span>
-                            <span><i class="fas fa-map-marker-alt"></i> Lokossa, Bénin</span>
-                        </div>
-                        <p class="offer-description">
-                            Enseignement des cours théoriques et pratiques en génie électrique, encadrement des travaux dirigés...
-                        </p>
-                        <div class="offer-footer">
-                            <div class="deadline">
-                                <i class="fas fa-calendar-alt"></i>
-                                Date limite : <strong>15 Janvier 2025</strong>
+                <!-- Offre exemple -->
+                @foreach($offers as $offer)
+                    <div class="offer-item">
+                        <div class="offer-badge">{{ $offer->badge }}</div>
+                        <div class="offer-content">
+                            <h3 class="offer-title">{{ $offer->title }}</h3>
+                            <div class="offer-meta">
+                                <span><i class="fas fa-building"></i> {{ $offer->department }}</span>
+                                <span><i class="fas fa-clock"></i> {{ $offer->contract_type }}</span>
+                                <span><i class="fas fa-map-marker-alt"></i> {{ $offer->location }}</span>
                             </div>
-                            <div class="offer-actions">
-                                <span class="post-count">2 Postes</span>
-                                <a href="{{ route('offers.details', ['id' => 1]) }}" class="btn-details">Voir détails</a>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- Offer Item 2 -->
-                <div class="offer-item">
-                    <div class="offer-badge">Urgent</div>
-                    <div class="offer-content">
-                        <h3 class="offer-title">Enseignant en Informatique et Réseaux</h3>
-                        <div class="offer-meta">
-                            <span><i class="fas fa-building"></i> Département Informatique</span>
-                            <span><i class="fas fa-clock"></i> Temps plein</span>
-                            <span><i class="fas fa-map-marker-alt"></i> Lokossa, Bénin</span>
-                        </div>
-                        <p class="offer-description">
-                            Enseignement des cours d'informatique, réseaux et systèmes d'information, développement d'applications...
-                        </p>
-                        <div class="offer-footer">
-                            <div class="deadline">
-                                <i class="fas fa-calendar-alt"></i>
-                                Date limite : <strong>31 Janvier 2025</strong>
-                            </div>
-                            <div class="offer-actions">
-                                <span class="post-count">2 Postes</span>
-                                <a href="{{ route('offers.details', ['id' => 2]) }}" class="btn-details">Voir détails</a>
+                            <p class="offer-description">{{ $offer->short_description }}</p>
+                            <div class="offer-footer">
+                                <div class="deadline">
+                                    <i class="fas fa-calendar-alt"></i>
+                                    Date limite : <strong>{{ $offer->deadline->format('d M Y') }}</strong>
+                                </div>
+                                <div class="offer-actions">
+                                    <span class="post-count">{{ $offer->positions }} Poste{{ $offer->positions > 1 ? 's' : '' }}</span>
+                                    <a href="{{ route('offers.details', ['id' => $offer->id]) }}" class="btn-details">Voir détails</a>
+                                </div>
                             </div>
                         </div>
                     </div>
-                </div>
-
-                <!-- Offer Item 3 -->
-                <div class="offer-item">
-                    <div class="offer-badge">Recrutement</div>
-                    <div class="offer-content">
-                        <h3 class="offer-title">Enseignant en Génie Mécanique</h3>
-                        <div class="offer-meta">
-                            <span><i class="fas fa-building"></i> Département Génie Mécanique</span>
-                            <span><i class="fas fa-clock"></i> Temps plein</span>
-                            <span><i class="fas fa-map-marker-alt"></i> Lokossa, Bénin</span>
-                        </div>
-                        <p class="offer-description">
-                            Enseignement des cours de mécanique, thermodynamique, conception mécanique, et encadrement des projets...
-                        </p>
-                        <div class="offer-footer">
-                            <div class="deadline">
-                                <i class="fas fa-calendar-alt"></i>
-                                Date limite : <strong>26 Janvier 2025</strong>
-                            </div>
-                            <div class="offer-actions">
-                                <span class="post-count">2 Postes</span>
-                                <a href="{{ route('offers.details', ['id' => 3]) }}" class="btn-details">Voir détails</a>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- Offer Item 4 -->
-                <div class="offer-item">
-                    <div class="offer-badge">Nouveau</div>
-                    <div class="offer-content">
-                        <h3 class="offer-title">Enseignant en Mathématiques Appliquées</h3>
-                        <div class="offer-meta">
-                            <span><i class="fas fa-building"></i> Département Science Fondamentale</span>
-                            <span><i class="fas fa-clock"></i> Temps plein</span>
-                            <span><i class="fas fa-map-marker-alt"></i> Lokossa, Bénin</span>
-                        </div>
-                        <p class="offer-description">
-                            Enseignement des mathématiques appliquées, algèbre linéaire, analyse numérique, et statistiques...
-                        </p>
-                        <div class="offer-footer">
-                            <div class="deadline">
-                                <i class="fas fa-calendar-alt"></i>
-                                Date limite : <strong>20 Février 2025</strong>
-                            </div>
-                            <div class="offer-actions">
-                                <span class="post-count">1 Poste</span>
-                                <a href="{{ route('offers.details', ['id' => 4]) }}" class="btn-details">Voir détails</a>
-                            </div>
-                        </div>
-                    </div>
-                </div>
+                @endforeach
             </div>
 
             <!-- PAGINATION -->
             <div class="pagination">
-                <a href="#" class="page-link active">1</a>
-                <a href="#" class="page-link">2</a>
-                <a href="#" class="page-link">3</a>
-                <span class="page-dots">...</span>
-                <a href="#" class="page-link">10</a>
-                <a href="#" class="page-link next">
-                    Suivant <i class="fas fa-chevron-right"></i>
-                </a>
+                {{ $offers->links('vendor.pagination.default') }}
             </div>
         </div>
     </section>
@@ -207,3 +127,19 @@
         </div>
     </section>
 @endsection
+
+@push('scripts')
+    <!-- JS spécifique à cette page -->
+    <script src="{{ asset('js/pages/public/offers.js') }}"></script>
+
+    <!-- Exemple JS pour filtres -->
+    <script>
+        document.querySelector('.btn-apply-filter')?.addEventListener('click', function() {
+            const department = document.querySelector('select[name="department"]')?.value;
+            const contract = document.querySelector('select[name="contract_type"]')?.value;
+            const deadline = document.querySelector('select[name="deadline"]')?.value;
+
+            alert(`Filtres appliqués : Département=${department}, Contrat=${contract}, Deadline=${deadline}`);
+        });
+    </script>
+@endpush
