@@ -59,13 +59,13 @@
         <!-- ===== MENU ===== -->
         <div class="header-menu" id="headerMenu">
             <nav>
-                <a href="{{ route('accueil') }}" class="active">ACCUEIL</a>
-                <a href="{{ route('presentation') }}">PRÉSENTATION</a>
-                <a href="{{ route('formations') }}">FORMATIONS</a>
-                <a href="{{ route('actualites') }}">ACTUALITÉS</a>
-                <a href="{{ route('vie-academique') }}">VIE ACADÉMIQUE</a>
-                <a href="{{ route('recherches') }}">RECHERCHES & COOPÉRATIONS</a>
-                <a href="{{ route('connexion') }}">CONNEXION</a>
+                <a href="#" class="active">ACCUEIL</a>
+                <a href="#">PRÉSENTATION</a>
+                <a href="#">FORMATIONS</a>
+                <a href="#">ACTUALITÉS</a>
+                <a href="#">VIE ACADÉMIQUE</a>
+                <a href="#">RECHERCHES & COOPÉRATIONS</a>
+                <a href="#">CONNEXION</a>
             </nav>
         </div>
 
