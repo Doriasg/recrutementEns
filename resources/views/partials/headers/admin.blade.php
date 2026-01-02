@@ -39,14 +39,14 @@
 
         <div class="header-menu">
             <nav>
-                <a href="{{ route('admin.dashboard') }}" class="{{ request()->routeIs('admin.dashboard') ? 'active' : '' }}">TABLEAU DE BORD</a>
-                <a href="{{ route('admin.users') }}" class="{{ request()->routeIs('admin.users') ? 'active' : '' }}">UTILISATEURS</a>
-                <a href="{{ route('admin.offers') }}" class="{{ request()->routeIs('admin.offers') ? 'active' : '' }}">OFFRES</a>
-                <a href="{{ route('admin.applications') }}">CANDIDATURES</a>
-                <a href="{{ route('admin.settings') }}">CONFIGURATION</a>
-                <a href="{{ route('admin.reports') }}">STATISTIQUES</a>
-                <a href="{{ route('logout') }}" onclick="event.preventDefault(); document.getElementById('logout-form').submit();">DÉCONNEXION</a>
-                <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
+                <a href="{{ route('dashboard.admin') }}" class="{{ request()->routeIs('admin.dashboard') ? 'active' : '' }}">TABLEAU DE BORD</a>
+                <a href="{{ route('users.admin') }}" class="{{ request()->routeIs('admin.users') ? 'active' : '' }}">UTILISATEURS</a>
+                <a href="{{ route('offres.admin') }}" class="{{ request()->routeIs('admin.offers') ? 'active' : '' }}">OFFRES</a>
+                <a href="#">CANDIDATURES</a>
+                <a href="#">CONFIGURATION</a>
+                <a href="#">STATISTIQUES</a>
+                <a href="#" onclick="event.preventDefault(); document.getElementById('logout-form').submit();">DÉCONNEXION</a>
+                <form id="logout-form" action="#" method="POST" style="display: none;">
                     @csrf
                 </form>
             </nav>

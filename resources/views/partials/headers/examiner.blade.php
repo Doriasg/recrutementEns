@@ -39,13 +39,13 @@
 
         <div class="header-menu">
             <nav>
-                <a href="{{ route('examiner.dashboard') }}" class="{{ request()->routeIs('examiner.dashboard') ? 'active' : '' }}">TABLEAU DE BORD</a>
-                <a href="{{ route('examiner.evaluations') }}" class="{{ request()->routeIs('examiner.evaluations') ? 'active' : '' }}">ÉVALUATIONS</a>
-                <a href="{{ route('examiner.candidates') }}">CANDIDATS</a>
-                <a href="{{ route('examiner.reports') }}">RAPPORTS</a>
-                <a href="{{ route('examiner.settings') }}">PARAMÈTRES</a>
-                <a href="{{ route('logout') }}" onclick="event.preventDefault(); document.getElementById('logout-form').submit();">DÉCONNEXION</a>
-                <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
+                <a href="#" class="{{ request()->routeIs('examiner.dashboard') ? 'active' : '' }}">TABLEAU DE BORD</a>
+                <a href="#" class="{{ request()->routeIs('examiner.evaluations') ? 'active' : '' }}">ÉVALUATIONS</a>
+                <a href="#">CANDIDATS</a>
+                <a href="#">RAPPORTS</a>
+                <a href="#">PARAMÈTRES</a>
+                <a href="#" onclick="event.preventDefault(); document.getElementById('logout-form').submit();">DÉCONNEXION</a>
+                <form id="logout-form" action="#" method="POST" style="display: none;">
                     @csrf
                 </form>
             </nav>

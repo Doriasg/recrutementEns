@@ -52,7 +52,7 @@
             </nav>
 
             <!-- FORM -->
-            <form id="candidatureForm" action="{{ route('teacher.application.submit') }}" method="POST" enctype="multipart/form-data">
+            <form id="candidatureForm" action="#" method="POST" enctype="multipart/form-data">
                 @csrf
                 <input type="hidden" name="offer_id" value="{{ request('offer_id', 1) }}">
                 

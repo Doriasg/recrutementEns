@@ -14,52 +14,52 @@
     <nav class="sidebar-nav">
         <ul>
             <li>
-                <a href="{{ route('admin.dashboard') }}" class="{{ request()->routeIs('admin.dashboard') ? 'active' : '' }}">
+                <a href="{{ route('dashboard.admin') }}" class="{{ request()->routeIs('admin.dashboard') ? 'active' : '' }}">
                     <i class="fas fa-tachometer-alt"></i>
                     <span>Tableau de bord</span>
                 </a>
             </li>
             <li>
-                <a href="{{ route('admin.users') }}" class="{{ request()->routeIs('admin.users') ? 'active' : '' }}">
+                <a href="{{ route('users.admin') }}" class="{{ request()->routeIs('admin.users') ? 'active' : '' }}">
                     <i class="fas fa-users"></i>
                     <span>Utilisateurs</span>
                     <span class="badge">156</span>
                 </a>
             </li>
             <li>
-                <a href="{{ route('admin.offers') }}" class="{{ request()->routeIs('admin.offers') ? 'active' : '' }}">
+                <a href="{{ route('offres.admin') }}" class="{{ request()->routeIs('admin.offers') ? 'active' : '' }}">
                     <i class="fas fa-briefcase"></i>
                     <span>Offres</span>
                     <span class="badge">24</span>
                 </a>
             </li>
             <li>
-                <a href="{{ route('admin.applications') }}">
+                <a href="#">
                     <i class="fas fa-file-alt"></i>
                     <span>Candidatures</span>
                     <span class="badge">356</span>
                 </a>
             </li>
             <li>
-                <a href="{{ route('admin.departments') }}">
+                <a href="#">
                     <i class="fas fa-building"></i>
                     <span>Départements</span>
                 </a>
             </li>
             <li>
-                <a href="{{ route('admin.settings') }}">
+                <a href="#">
                     <i class="fas fa-cog"></i>
                     <span>Configuration</span>
                 </a>
             </li>
             <li>
-                <a href="{{ route('admin.reports') }}">
+                <a href="#">
                     <i class="fas fa-chart-bar"></i>
                     <span>Statistiques</span>
                 </a>
             </li>
             <li>
-                <a href="{{ route('admin.logs') }}">
+                <a href="#">
                     <i class="fas fa-history"></i>
                     <span>Journaux</span>
                 </a>

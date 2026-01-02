@@ -14,44 +14,44 @@
     <nav class="sidebar-nav">
         <ul>
             <li>
-                <a href="{{ route('examiner.dashboard') }}" class="{{ request()->routeIs('examiner.dashboard') ? 'active' : '' }}">
+                <a href="{{ route('dashboard.examinateur') }}" class="{{ request()->routeIs('examiner.dashboard') ? 'active' : '' }}">
                     <i class="fas fa-tachometer-alt"></i>
                     <span>Tableau de bord</span>
                 </a>
             </li>
             <li>
-                <a href="{{ route('examiner.evaluations') }}" class="{{ request()->routeIs('examiner.evaluations') ? 'active' : '' }}">
+                <a href="{{ route('evaluations.examinateur') }}" class="{{ request()->routeIs('examiner.evaluations') ? 'active' : '' }}">
                     <i class="fas fa-clipboard-check"></i>
                     <span>Évaluations</span>
                     <span class="badge">12</span>
                 </a>
             </li>
             <li>
-                <a href="{{ route('examiner.candidates') }}">
+                <a href="#">
                     <i class="fas fa-users"></i>
                     <span>Candidats</span>
                 </a>
             </li>
             <li>
-                <a href="{{ route('examiner.offers') }}">
+                <a href="#">
                     <i class="fas fa-briefcase"></i>
                     <span>Offres</span>
                 </a>
             </li>
             <li>
-                <a href="{{ route('examiner.criteria') }}">
+                <a href="#">
                     <i class="fas fa-list-check"></i>
                     <span>Critères</span>
                 </a>
             </li>
             <li>
-                <a href="{{ route('examiner.reports') }}">
+                <a href="#">
                     <i class="fas fa-chart-pie"></i>
                     <span>Rapports</span>
                 </a>
             </li>
             <li>
-                <a href="{{ route('examiner.settings') }}">
+                <a href="#">
                     <i class="fas fa-cog"></i>
                     <span>Paramètres</span>
                 </a>

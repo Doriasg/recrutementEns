@@ -80,7 +80,7 @@
         <section class="activity-section">
             <div class="section-header">
                 <h2><i class="fas fa-history"></i> Activité récente</h2>
-                <a href="{{ route('admin.logs') }}" class="view-all">
+                <a href="#" class="view-all">
                     Voir tout
                     <i class="fas fa-arrow-right"></i>
                 </a>
@@ -238,37 +238,37 @@
             <section class="quick-actions">
                 <h3><i class="fas fa-bolt"></i> Actions rapides</h3>
                 <div class="actions-grid">
-                    <a href="{{ route('admin.users.create') }}" class="action-btn">
+                    <a href="#" class="action-btn">
                         <div class="action-icon">
                             <i class="fas fa-user-plus"></i>
                         </div>
                         <span>Ajouter utilisateur</span>
                     </a>
-                    <a href="{{ route('admin.offers.create') }}" class="action-btn">
+                    <a href="#" class="action-btn">
                         <div class="action-icon">
                             <i class="fas fa-plus-circle"></i>
                         </div>
                         <span>Créer offre</span>
                     </a>
-                    <a href="{{ route('admin.settings') }}" class="action-btn">
+                    <a href="#" class="action-btn">
                         <div class="action-icon">
                             <i class="fas fa-cog"></i>
                         </div>
                         <span>Configuration</span>
                     </a>
-                    <a href="{{ route('admin.reports') }}" class="action-btn">
+                    <a href="#" class="action-btn">
                         <div class="action-icon">
                             <i class="fas fa-chart-bar"></i>
                         </div>
                         <span>Rapports</span>
                     </a>
-                    <a href="{{ route('admin.backup') }}" class="action-btn">
+                    <a href="#" class="action-btn">
                         <div class="action-icon">
                             <i class="fas fa-save"></i>
                         </div>
                         <span>Sauvegarde</span>
                     </a>
-                    <a href="{{ route('admin.logs') }}" class="action-btn">
+                    <a href="#" class="action-btn">
                         <div class="action-icon">
                             <i class="fas fa-history"></i>
                         </div>
@@ -281,7 +281,7 @@
             <section class="recent-users">
                 <div class="section-header">
                     <h3><i class="fas fa-user-clock"></i> Nouveaux utilisateurs</h3>
-                    <a href="{{ route('admin.users') }}">Voir tout</a>
+                    <a href="#">Voir tout</a>
                 </div>
                 <div class="users-list">
                     <div class="user-item">

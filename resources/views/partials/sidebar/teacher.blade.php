@@ -14,15 +14,15 @@
     <nav class="sidebar-nav">
         <ul>
             <li>
-                <a href="{{ route('teacher.dashboard') }}" class="{{ request()->routeIs('teacher.dashboard') ? 'active' : '' }}">
+                <a href="{{ route('teacher.dashboard') }}" class="">
                     <i class="fas fa-tachometer-alt"></i>
                     <span>Tableau de bord</span>
                 </a>
             </li>
             <li>
-                <a href="#" class="{{ request()->routeIs('teacher.offers') ? 'active' : '' }}">
+                <a href="{{ route('candidater') }}" class="{{ request()->routeIs('candidater') ? 'active' : '' }}">
                     <i class="fas fa-briefcase"></i>
-                    <span>Offres d'emploi</span>
+                    <span>Candidater</span>
                 </a>
             </li>
             <li>
@@ -33,7 +33,7 @@
                 </a>
             </li>
             <li>
-                <a href="#" class="{{ request()->routeIs('teacher.profile') ? 'active' : '' }}">
+                <a href="{{ route('profil') }}" class="{{ request()->routeIs('teacher.profile') ? 'active' : '' }}">
                     <i class="fas fa-user-circle"></i>
                     <span>Mon profil</span>
                     <span class="progress-tag">85%</span>

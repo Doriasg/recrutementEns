@@ -58,7 +58,7 @@
         <section class="applications-section">
             <div class="section-header">
                 <h2>Évaluations en attente</h2>
-                <a href="{{ route('examiner.evaluations') }}" class="view-all">
+                <a href="#" class="view-all">
                     Voir toutes
                     <i class="fas fa-arrow-right"></i>
                 </a>
@@ -99,10 +99,10 @@
                         </div>
                     </div>
                     <div class="evaluation-actions">
-                        <a href="{{ route('examiner.evaluation.details', ['id' => 1]) }}" class="btn-evaluate">
+                        <a href="#" class="btn-evaluate">
                             <i class="fas fa-edit"></i> Évaluer
                         </a>
-                        <a href="{{ route('examiner.candidate.profile', ['id' => 1]) }}" class="btn-view">
+                        <a href="#" class="btn-view">
                             <i class="fas fa-eye"></i> Profil
                         </a>
                     </div>
@@ -142,10 +142,10 @@
                         </div>
                     </div>
                     <div class="evaluation-actions">
-                        <a href="{{ route('examiner.evaluation.details', ['id' => 2]) }}" class="btn-evaluate">
+                        <a href="#" class="btn-evaluate">
                             <i class="fas fa-edit"></i> Évaluer
                         </a>
-                        <a href="{{ route('examiner.candidate.profile', ['id' => 2]) }}" class="btn-view">
+                        <a href="#" class="btn-view">
                             <i class="fas fa-eye"></i> Profil
                         </a>
                     </div>
@@ -185,10 +185,10 @@
                         </div>
                     </div>
                     <div class="evaluation-actions">
-                        <a href="{{ route('examiner.evaluation.details', ['id' => 3]) }}" class="btn-evaluate">
+                        <a href="#" class="btn-evaluate">
                             <i class="fas fa-edit"></i> Évaluer
                         </a>
-                        <a href="{{ route('examiner.candidate.profile', ['id' => 3]) }}" class="btn-view">
+                        <a href="#" class="btn-view">
                             <i class="fas fa-eye"></i> Profil
                         </a>
                     </div>
@@ -205,7 +205,7 @@
                 </h3>
 
                 <div class="actions-list">
-                    <a href="{{ route('examiner.evaluations') }}" class="action-item active">
+                    <a href="#" class="action-item active">
                         <div class="action-icon">
                             <i class="fas fa-clipboard-check"></i>
                         </div>
@@ -215,7 +215,7 @@
                         </div>
                     </a>
 
-                    <a href="{{ route('examiner.criteria') }}" class="action-item">
+                    <a href="#" class="action-item">
                         <div class="action-icon">
                             <i class="fas fa-list-check"></i>
                         </div>
@@ -225,7 +225,7 @@
                         </div>
                     </a>
 
-                    <a href="{{ route('examiner.reports') }}" class="action-item">
+                    <a href="#" class="action-item">
                         <div class="action-icon">
                             <i class="fas fa-chart-pie"></i>
                         </div>

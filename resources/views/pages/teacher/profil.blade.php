@@ -93,7 +93,7 @@
                 </div>
 
                 <!-- Edit Mode (Hidden by default) -->
-                <form id="editForm" style="display: none;" action="{{ route('teacher.profile.update') }}" method="POST">
+                <form id="editForm" style="display: none;" action="#" method="POST">
                     @csrf
                     @method('PUT')
                     
