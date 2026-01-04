@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\ProfileController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers;
 use App\Http\Controllers\homeController;
@@ -24,3 +25,16 @@ Route::get('/examinateur/evaluations', [ evalController::class, 'index'])->name(
 Route::get('/admin/dashboard', [ dashadminController::class, 'index'])->name('dashboard.admin');
 Route::get('/admin/offres', [ offresController::class, 'index'])->name('offres.admin');
 Route::get('/admin/users', [ usersController::class, 'index'])->name('users.admin');
+
+
+Route::get('/dashboard', function () {
+    return view('dashboard');
+})->middleware(['auth', 'verified'])->name('dashboard');
+
+Route::middleware('auth')->group(function () {
+    Route::get('/profile', [ProfileController::class, 'edit'])->name('profile.edit');
+    Route::patch('/profile', [ProfileController::class, 'update'])->name('profile.update');
+    Route::delete('/profile', [ProfileController::class, 'destroy'])->name('profile.destroy');
+});
+
+require __DIR__.'/auth.php';
