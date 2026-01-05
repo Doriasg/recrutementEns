@@ -12,6 +12,10 @@ use App\Http\Controllers\examinateur\evalController;
 use App\Http\Controllers\admin\dashadminController;
 use App\Http\Controllers\admin\offresController;
 use App\Http\Controllers\admin\usersController;
+use App\Http\Controllers\DashboardController;
+use App\Http\Controllers\gestionnaire\DashboardgestController;
+use App\Http\Controllers\gestionnaire\UsersgestController;
+use App\Http\Controllers\gestionnaire\add_roleController;
 //public routes
 Route::get('/', [homeController::class, 'index'])->name('home');
 //teacher routes
@@ -25,11 +29,14 @@ Route::get('/examinateur/evaluations', [ evalController::class, 'index'])->name(
 Route::get('/admin/dashboard', [ dashadminController::class, 'index'])->name('dashboard.admin');
 Route::get('/admin/offres', [ offresController::class, 'index'])->name('offres.admin');
 Route::get('/admin/users', [ usersController::class, 'index'])->name('users.admin');
+//gestionnaire routes
+Route::get('/gestionnaire/dashboard', [ DashboardgestController::class, 'index'])->name('dashboard.gestionnaire');
+Route::get('/gestionnaire/users', [UsersgestController::class, 'index'])->name('users.gestionnaire');
+Route::get('/gestionnaire/users/{id}', [UsersgestController::class, 'show'])->name('show_user.gestionnaire');
+Route::get('/gestionnaire/users/{id}/edit', [UsersgestController::class, 'edit'])->name('edit_user.gestionnaire');
+Route::put('/gestionnaire/update/users/{id}', [UsersgestController::class, 'update'])->name('user_update.gestionnaire');
 
-
-Route::get('/dashboard', function () {
-    return view('dashboard');
-})->middleware(['auth', 'verified'])->name('dashboard');
+Route::get('/dashboard', [DashboardController::class, 'index'])->middleware(['auth', 'verified'])->name('dashboard');
 
 Route::middleware('auth')->group(function () {
     Route::get('/profile', [ProfileController::class, 'edit'])->name('profile.edit');
