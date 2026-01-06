@@ -18,6 +18,7 @@ use App\Http\Controllers\gestionnaire\UsersgestController;
 use App\Http\Controllers\gestionnaire\add_roleController;
 use App\Http\Controllers\teacher\candidController;
 use App\Http\Controllers\teacher\offretController;
+use App\Http\Controllers\gestionnaire\offreController;
 //public routes
 Route::get('/', [homeController::class, 'index'])->name('home');
 //teacher routes
@@ -39,7 +40,7 @@ Route::get('/gestionnaire/users', [UsersgestController::class, 'index'])->name('
 Route::get('/gestionnaire/users/{id}', [UsersgestController::class, 'show'])->name('show_user.gestionnaire');
 Route::get('/gestionnaire/users/{id}/edit', [UsersgestController::class, 'edit'])->name('edit_user.gestionnaire');
 Route::put('/gestionnaire/update/users/{id}', [UsersgestController::class, 'update'])->name('user_update.gestionnaire');
-
+Route::get('/gestionnaire/offres', [offreController::class, 'index'])->name('offres.gestionnaire');
 Route::get('/dashboard', [DashboardController::class, 'index'])->middleware(['auth', 'verified'])->name('dashboard');
 
 Route::middleware('auth')->group(function () {

@@ -194,7 +194,7 @@
         <li class="dropdown">
           <a href="#" class="menu-toggle nav-link has-dropdown"><i data-feather="command"></i><span>Offres</span></a>
           <ul class="dropdown-menu">
-            <li><a class="nav-link" href="chat.html">Voir les offres</a></li>
+            <li><a class="nav-link" href="{{ route('offres.gestionnaire') }}">Voir les offres</a></li>
             <li><a class="nav-link" href="portfolio.html">Ajouter</a></li>
           </ul>
         </li>
