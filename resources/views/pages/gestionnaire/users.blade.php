@@ -38,7 +38,7 @@
                                             <td>{{ $user->sexe }}</td>
                                             <td>{{ $user->role->name ?? 'null' }}</td>
                                             <td>{{ $user->created_at }}</td>
-                                            <td><a href="{{ route('edit_user.gestionnaire', $user->id) }}" class="btn btn-sm btn-primary">Modifier</a></td>
+                                            <td><a href="{{ route('edit_user.gestionnaire', $user->id) }}" class="btn btn-sm btn-primary">Modifier</a> <a href="{{ route('show_user.gestionnaire', $user->id) }}" class="btn btn-sm btn-info"><ion-icon name="eye-outline"></ion-icon></a></td>
 
                                         </tr>
                                         @endforeach

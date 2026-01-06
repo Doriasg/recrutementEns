@@ -16,12 +16,16 @@ use App\Http\Controllers\DashboardController;
 use App\Http\Controllers\gestionnaire\DashboardgestController;
 use App\Http\Controllers\gestionnaire\UsersgestController;
 use App\Http\Controllers\gestionnaire\add_roleController;
+use App\Http\Controllers\teacher\candidController;
+use App\Http\Controllers\teacher\offretController;
 //public routes
 Route::get('/', [homeController::class, 'index'])->name('home');
 //teacher routes
 Route::get('/teacher/dashboard', [ dashController::class, 'index'])->name('teacher.dashboard');
 Route::get('/teacher/formulaire-candidature', [formController::class, 'index'])->name('candidater');
-Route::get('/teacher/profil', [profilController::class, 'index'])->name('profil');
+Route::get('/teacher/profil', [profilController::class, 'index'])->name('profil.teacher');
+Route::get('/teacher/candidatures', [candidController::class, 'index'])->name('user.Candidatures');
+Route::get('/teacher/offres', [offretController::class, 'index'])->name('offres.teacher');
 //examinateurs
 Route::get('/examinateur/dashboard', [ dashexController::class, 'index'])->name('dashboard.examinateur');
 Route::get('/examinateur/evaluations', [ evalController::class, 'index'])->name('evaluations.examinateur');

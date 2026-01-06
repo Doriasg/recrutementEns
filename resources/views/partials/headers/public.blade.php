@@ -41,8 +41,19 @@
                 <a href="{{ route('home') }}" class="{{ request()->routeIs('home') ? 'active' : '' }}">ACCUEIL</a>
                 <a href="#offres">OFFRES</a>
                 <a href="#">CONTACTS</a>
+                @auth
+                <form action="{{ route('logout') }}" method="POST">
+                    @csrf
+                  
+                    <button type="submit" class="btn-logout">DÉCONNEXION</button>
+                    
+                </form>
+                @else
+                    <a href="{{ route('login') }}" class="{{ request()->routeIs('login') ? 'active' : '' }}">CONNEXION</a>
+                    @endauth
+              
+                    
                 
-                <a href="#" class="{{ request()->routeIs('login') ? 'active' : '' }}">CONNEXION</a>
             </nav>
         </div>
     </div>

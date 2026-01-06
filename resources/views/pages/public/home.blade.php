@@ -1,15 +1,8 @@
-@extends('layouts.public')
-
-@section('title', 'INSTI - Recrutement Enseignants')
-
-@push('page-styles')
-    <!-- CSS spécifique à cette page -->
-    <link rel="stylesheet" href="{{ asset('css/pages/public/home.css') }}">
-@endpush
-
+@extends('public')
 @section('content')
     <!-- HERO SECTION -->
     <section class="hero-section">
+        <div class="hero-overlay"></div>
         <div class="hero-content">
             <h1>Recrutement d'Enseignants</h1>
             <p>Rejoignez notre équipe pédagogique et contribuez à former la prochaine génération d'ingénieurs et de techniciens supérieurs.</p>
@@ -198,29 +191,58 @@
         </div>
     </section>
 @endsection
-
-@push('page-scripts')
-    <!-- JS spécifique à cette page -->
-    <script src="{{ asset('js/pages/public/home.js') }}"></script>
-
-    <!-- JS inline pour le slider du hero -->
+    <!-- Script pour le changement d'image du hero -->
     <script>
         document.addEventListener('DOMContentLoaded', function() {
             const heroSection = document.querySelector('.hero-section');
             const images = [
-                '{{ asset("assets/images/hero1.jpeg") }}',
-                '{{ asset("assets/images/hero2.jpeg") }}',
-                '{{ asset("assets/images/hero3.jpg") }}'
+                'https://images.unsplash.com/photo-1523050854058-8df90110c9f1?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1470&q=80',
+                'https://images.unsplash.com/photo-1523050854058-8df90110c9f1?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1470&q=80',
+                'https://images.unsplash.com/photo-1523050854058-8df90110c9f1?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1470&q=80'
             ];
             let currentIndex = 0;
 
             function changeBackground() {
-                heroSection.style.backgroundImage = `url('${images[currentIndex]}')`;
+                heroSection.style.backgroundImage = `linear-gradient(rgba(10, 63, 143, 0.9), rgba(11, 79, 163, 0.9)), url('${images[currentIndex]}')`;
                 currentIndex = (currentIndex + 1) % images.length;
             }
 
-            changeBackground();
+            // Changer l'image toutes les 30 secondes
             setInterval(changeBackground, 30000);
+            
+            // Ajouter une animation aux statistiques au défilement
+            const statsSection = document.querySelector('.stats-section');
+            const statNumbers = document.querySelectorAll('.stat-number');
+            
+            function animateStats() {
+                statNumbers.forEach(stat => {
+                    const target = parseInt(stat.textContent);
+                    let current = 0;
+                    const increment = Math.ceil(target / 50);
+                    const timer = setInterval(() => {
+                        current += increment;
+                        if (current >= target) {
+                            stat.textContent = target;
+                            clearInterval(timer);
+                        } else {
+                            stat.textContent = current;
+                        }
+                    }, 30);
+                });
+            }
+            
+            // Observer pour animer les stats quand ils sont visibles
+            const observer = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        animateStats();
+                        observer.unobserve(entry.target);
+                    }
+                });
+            }, { threshold: 0.5 });
+            
+            if (statsSection) {
+                observer.observe(statsSection);
+            }
         });
     </script>
-@endpush
