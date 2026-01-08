@@ -69,7 +69,7 @@ class UsersgestController extends Controller
 
     // Valide que 'role' est présent
     $validated = $request->validate([
-        'role_id' => 'required|required|exists:roles,id', // vérifie que le nom existe dans roles
+        'role_id' => 'required|required|exists:roles,id', 
     ]);
 
     // Met à jour l'utilisateur

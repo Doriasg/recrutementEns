@@ -1,4 +1,5 @@
 @extends('public')
+
 @section('content')
     <!-- HERO SECTION -->
     <section class="hero-section">
@@ -191,6 +192,73 @@
         </div>
     </section>
 @endsection
+
+@push('page-styles')
+    <!-- Styles spécifiques à la page home -->
+    <style>
+        /* Styles additionnels si nécessaire */
+        .hero-section {
+            min-height: 80vh;
+            display: flex;
+            align-items: center;
+            background: linear-gradient(rgba(10, 63, 143, 0.9), rgba(11, 79, 163, 0.9)),
+                        url('https://images.unsplash.com/photo-1523050854058-8df90110c9f1?ixlib=rb-4.0.3&auto=format&fit=crop&w=1470&q=80');
+            background-size: cover;
+            background-position: center;
+            background-attachment: fixed;
+            position: relative;
+        }
+        
+        .hero-overlay {
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: rgba(0, 0, 0, 0.3);
+        }
+        
+        .hero-content {
+            position: relative;
+            z-index: 2;
+            color: white;
+            text-align: center;
+            padding: 2rem;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+        
+        .hero-content h1 {
+            font-size: 3.5rem;
+            margin-bottom: 1rem;
+        }
+        
+        .hero-content p {
+            font-size: 1.25rem;
+            margin-bottom: 2rem;
+            max-width: 800px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+        
+        .cta-button {
+            display: inline-block;
+            padding: 1rem 2rem;
+            background: #ff6b35;
+            color: white;
+            text-decoration: none;
+            border-radius: 5px;
+            font-weight: bold;
+            transition: background 0.3s ease;
+        }
+        
+        .cta-button:hover {
+            background: #e55a2b;
+        }
+    </style>
+@endpush
+
+@push('page-scripts')
     <!-- Script pour le changement d'image du hero -->
     <script>
         document.addEventListener('DOMContentLoaded', function() {
@@ -203,8 +271,10 @@
             let currentIndex = 0;
 
             function changeBackground() {
-                heroSection.style.backgroundImage = `linear-gradient(rgba(10, 63, 143, 0.9), rgba(11, 79, 163, 0.9)), url('${images[currentIndex]}')`;
-                currentIndex = (currentIndex + 1) % images.length;
+                if (heroSection) {
+                    heroSection.style.backgroundImage = linear-gradient(rgba(10, 63, 143, 0.9), rgba(11, 79, 163, 0.9)), url('${images[currentIndex]}');
+                    currentIndex = (currentIndex + 1) % images.length;
+                }
             }
 
             // Changer l'image toutes les 30 secondes
@@ -232,17 +302,18 @@
             }
             
             // Observer pour animer les stats quand ils sont visibles
-            const observer = new IntersectionObserver((entries) => {
-                entries.forEach(entry => {
-                    if (entry.isIntersecting) {
-                        animateStats();
-                        observer.unobserve(entry.target);
-                    }
-                });
-            }, { threshold: 0.5 });
-            
             if (statsSection) {
+                const observer = new IntersectionObserver((entries) => {
+                    entries.forEach(entry => {
+                        if (entry.isIntersecting) {
+                            animateStats();
+                            observer.unobserve(entry.target);
+                        }
+                    });
+                }, { threshold: 0.5 });
+                
                 observer.observe(statsSection);
             }
         });
     </script>
+@endpush

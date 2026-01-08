@@ -4,51 +4,35 @@
     <section class="section">
         <div class="section-body">
             <div class="row">
-                <div class="col-12">
+                <div class="col-12 col-md-12 col-lg-12">
                     <div class="card">
-                        <div class="card-header">
-                            <h4>Export Table</h4>
-                        </div>
-                        <div class="card-body">
-                            <div class="table-responsive">
-                                <table class="table table-striped table-hover" id="tableExport" style="width:100%;">
-                                    <thead>
-                                        <tr>
-                                            <th>Name</th>
-                                            <th>Email</th>
-                                            <th>Photo</th>
-                                            <th>Sexe</th>
-                                            <th>Role</th>
-                                            <th>Date de création</th>
-                                            <th>Action</th>
-
-                                        </tr>
-                                    </thead>
-                                    <tbody>
-                                        @foreach ($users as $user)
-                                        <tr class="" data-href="{{ route('show_user.gestionnaire', $user->id) }}">
-                                            <td>{{ $user->name }}</td>
-                                            <td>{{ $user->email }}</td>
-                                            <td>@if ($user->photo_url)
-                                                <img src="{{ $user->photo_url }}" alt="Photo" style="width: 30px; height: 30px;">
-                                                @else
-                                                <ion-icon name="person-circle-outline" style="width: 30px; height: 30px"></ion-icon>
-                                                @endif
-                                            </td>
-                                            <td>{{ $user->sexe }}</td>
-                                            <td>{{ $user->role->name ?? 'null' }}</td>
-                                            <td>{{ $user->created_at }}</td>
-                                            <td><a href="{{ route('edit_user.gestionnaire', $user->id) }}" class="btn btn-sm btn-primary">Modifier</a> 
-                                            <a href="{{ route('show_user.gestionnaire', $user->id) }}" class="btn btn-sm btn-info">
-                                                <ion-icon name="eye-outline"></ion-icon></a></td>
-
-                                        </tr>
-                                        @endforeach
-                                    </tbody>
-
-                                </table>
+                        <form action="{{ route('update_offre.gestionnaire', $offre->id) }}" method="POST" enctype="multipart/form-data">
+                            @csrf
+                            @method('PUT')
+                         
+                            <div class="card-header">
+                                <h4>Ajouter une offre</h4>
                             </div>
-                        </div>
+                            <div class="card-body">
+                                <div class="form-group">
+                                    <label>Titre</label>
+                                    <input type="text" name="name" value="{{ $offre->name }}" class="form-control">
+                                </div>
+                                <div class="form-group">
+                                    <label>Description</label>
+                                    <input type="text" name="description" value="{{ $offre->description }}" class="form-control">
+                                </div>
+                                <div class="section-title">Date limite</div>
+                                <input type="date" name="date_fin" value="{{ $offre->date_fin }}" class="form-control">
+                                <div class="section-title">Fichier</div>
+
+                                <div class="custom-file">
+                                    <input type="file" class="custom-file-input" name="fichier_url" id="customFile">
+                                    <label class="custom-file-label" for="customFile">Choisir un fichier</label>
+                                </div>
+                                <button type="submit" class="btn btn-primary mt-4">Modifier</button>
+                            </div>
+                        </form>
                     </div>
                 </div>
             </div>

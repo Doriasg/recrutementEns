@@ -19,6 +19,7 @@ use App\Http\Controllers\gestionnaire\add_roleController;
 use App\Http\Controllers\teacher\candidController;
 use App\Http\Controllers\teacher\offretController;
 use App\Http\Controllers\gestionnaire\offreController;
+use App\Http\Controllers\gestionnaire\roleController;
 //public routes
 Route::get('/', [homeController::class, 'index'])->name('home');
 //teacher routes
@@ -41,7 +42,18 @@ Route::get('/gestionnaire/users/{id}', [UsersgestController::class, 'show'])->na
 Route::get('/gestionnaire/users/{id}/edit', [UsersgestController::class, 'edit'])->name('edit_user.gestionnaire');
 Route::put('/gestionnaire/update/users/{id}', [UsersgestController::class, 'update'])->name('user_update.gestionnaire');
 Route::get('/gestionnaire/offres', [offreController::class, 'index'])->name('offres.gestionnaire');
+Route::get('/gestionnaire/offres/create', [offreController::class, 'create'])->name('create_offre.gestionnaire');
+Route::post('/gestionnaire/offres', [offreController::class, 'store'])->name('store_offre.gestionnaire');
+Route::get('/gestionnaire/offres/{id}/edit', [offreController::class, 'edit'])->name('edit_offre.gestionnaire');
+Route::put('/gestionnaire/offres/{id}', [offreController::class, 'update'])->name('update_offre.gestionnaire');
+Route::delete('/gestionnaire/offres/{id}', [offreController::class, 'destroy'])->name('delete_offre.gestionnaire');
 Route::get('/dashboard', [DashboardController::class, 'index'])->middleware(['auth', 'verified'])->name('dashboard');
+Route::get('/gestionnaire/roles', [roleController::class, 'index'])->name('role.gestionnaire');
+Route::get('/gestionnaire/roles/create', [roleController::class, 'create'])->name('create_role.gestionnaire');
+Route::post('/gestionnaire/roles', [roleController::class, 'store'])->name('store_role.gestionnaire');
+Route::get('/gestionnaire/roles/{id}/edit', [roleController::class, 'edit'])->name('edit_role.gestionnaire');
+Route::put('/gestionnaire/roles/{id}', [roleController::class, 'update'])->name('update_role.gestionnaire');
+Route::delete('/gestionnaire/roles/{id}', [roleController::class, 'destroy'])->name('delete_role.gestionnaire');
 
 Route::middleware('auth')->group(function () {
     Route::get('/profile', [ProfileController::class, 'edit'])->name('profile.edit');

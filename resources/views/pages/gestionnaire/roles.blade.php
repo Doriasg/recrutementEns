@@ -18,46 +18,36 @@
         <tr>
             <th>#</th>
             <th>Nom</th>
-            <th>Description</th>
-            <th>Statut</th>
+            <th>Taches</th>
+            <th>Permissions</th>
             <th>Date de création</th>
-            <th>Date de clôture</th>
             <th class="text-center">Actions</th>
         </tr>
     </thead>
 
     <tbody>
-        @forelse ($offres as $index => $offre)
+        @forelse ($roles as $index => $role)
             <tr>
                 <td>{{ $index + 1 }}</td>
 
                 <td class="font-weight-bold">
-                    {{ $offre->name }}
+                    {{ $role->name }}
                 </td>
 
                 <td>
-                    {{ Str::limit($offre->description, 60) }}
+                    {{ $role->taches }}
                 </td>
 
                 <td>
-                    @if ($offre->status === 'active')
-                        <span class="badge badge-success">Active</span>
-                    @else
-                        <span class="badge badge-danger">Clôturée</span>
-                    @endif
+                    {{ $role->permissions }}
                 </td>
 
                 <td>
-                    {{ \Carbon\Carbon::parse($offre->date_debut)->format('d/m/Y') }}
+                    {{ $role->created_at?->format('d/m/Y') }}
                 </td>
-
-                <td>
-                    {{ \Carbon\Carbon::parse($offre->date_fin)->format('d/m/Y') }}
-                </td>
-
                 <td class="text-center">
                     {{-- Voir --}}
-                    <a href="{{ asset('storage/' . $offre->fichier_url) }}"
+                    <a href="#"
                        class="primary"
                        target="_blank"
                        title="Voir">
@@ -65,13 +55,13 @@
                     </a>
 
                     {{-- Modifier --}}
-                    <a href="{{ route('edit_offre.gestionnaire', $offre->id) }}"
+                    <a href="{{ route('edit_role.gestionnaire', $role->id) }}"
                        class="text-success ml-2"
                        title="Modifier">
                         <ion-icon name="create-outline"></ion-icon>
                     </a>
                     {{-- Supprimer --}}
-                    <form action="{{ route('delete_offre.gestionnaire', $offre->id) }}" method="POST"
+                    <form action="{{ route('delete_role.gestionnaire', $role->id) }}" method="POST"
                           style="display: inline;">
                         @csrf
                         @method('DELETE')

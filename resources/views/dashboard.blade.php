@@ -152,7 +152,7 @@
         </div>
       </li>
       <li class="dropdown"><a href="#" data-toggle="dropdown"
-          class="nav-link dropdown-toggle nav-link-lg nav-link-user">  @if (Auth::user()->photo_url)
+          class="nav-link dropdown-toggle nav-link-lg nav-link-user">  @if (Auth::user()?->photo_url)
           <img src="{{ Auth::user()->photo_url }}" alt="Photo" style="width: 30px; height: 30px;">
           @else:
             <ion-icon name="person-circle-outline" style="width: 40px; height: 40px; color: gray"></ion-icon>
@@ -183,19 +183,25 @@
       </div>
       <ul class="sidebar-menu">
         <li class="menu-header">{{ Auth::user()->role->name ?? 'null' }}</li>
-        @if (Auth::user()->role?->name == 'gestionnaire'):
+        @if (Auth::user()?->role?->name == 'gestionnaire'):
         <li class="dropdown">
           <a href="{{ route('dashboard.gestionnaire') }}" class="nav-link"><i data-feather="monitor"></i><span>Tableau de bord</span></a>
         </li>
         <li class="dropdown">
           <a href="{{ route('users.gestionnaire') }}" class="nav-link"><i data-feather="monitor"></i><span>Utilisateurs</span></a>
         </li>
-
+        <li class="dropdown">
+          <a href="#" class="menu-toggle nav-link has-dropdown"><i data-feather="command"></i><span>Role</span></a>
+          <ul class="dropdown-menu">
+            <li><a class="nav-link" href="{{ route('role.gestionnaire') }}">Voir les roles</a></li>
+            <li><a class="nav-link" href="{{ route('create_role.gestionnaire') }}">Ajouter</a></li>
+          </ul>
+        </li>
         <li class="dropdown">
           <a href="#" class="menu-toggle nav-link has-dropdown"><i data-feather="command"></i><span>Offres</span></a>
           <ul class="dropdown-menu">
             <li><a class="nav-link" href="{{ route('offres.gestionnaire') }}">Voir les offres</a></li>
-            <li><a class="nav-link" href="portfolio.html">Ajouter</a></li>
+            <li><a class="nav-link" href="{{ route('create_offre.gestionnaire') }}">Ajouter</a></li>
           </ul>
         </li>
         <li class="dropdown">
@@ -213,7 +219,7 @@
         </li>
        
 
-        @elseif (Auth::user()->role?->name == 'administrateur'):
+        @elseif (Auth::user()?->role?->name == 'administrateur'):
         <li class="dropdown">
           <a href="{{ route('dashboard.gestionnaire') }}" class="nav-link"><i data-feather="monitor"></i><span>Tableau de bord</span></a>
         </li>
@@ -228,7 +234,7 @@
             <li><a class="nav-link" href="portfolio.html">Ajouter</a></li>
           </ul>
         </li>
-        @elseif (Auth::user()->role?->name == 'evaluateur'):
+        @elseif (Auth::user()?->role?->name == 'evaluateur'):
         <li class="dropdown">
           <a href="{{ route('dashboard.gestionnaire') }}" class="nav-link"><i data-feather="monitor"></i><span>Tableau de bord</span></a>
         </li>
@@ -254,7 +260,7 @@
           
         </li>
 
-        @elseif (Auth::user()->role?->name == 'enseignant'):
+        @elseif (Auth::user()?->role?->name == 'enseignant'):
         <li class="dropdown">
           <a href="{{ route('teacher.dashboard') }}" class="nav-link"><i data-feather="monitor"></i><span>Tableau de bord</span></a>
         </li>

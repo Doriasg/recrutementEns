@@ -1,54 +1,36 @@
 @extends('dashboard')
 @section('content')
+<!-- Main Content -->
 <div class="main-content">
     <section class="section">
         <div class="section-body">
             <div class="row">
-                <div class="col-12">
+                <div class="col-12 col-md-12 col-lg-12">
                     <div class="card">
-                        <div class="card-header">
-                            <h4>Export Table</h4>
-                        </div>
-                        <div class="card-body">
-                            <div class="table-responsive">
-                                <table class="table table-striped table-hover" id="tableExport" style="width:100%;">
-                                    <thead>
-                                        <tr>
-                                            <th>Name</th>
-                                            <th>Email</th>
-                                            <th>Photo</th>
-                                            <th>Sexe</th>
-                                            <th>Role</th>
-                                            <th>Date de création</th>
-                                            <th>Action</th>
-
-                                        </tr>
-                                    </thead>
-                                    <tbody>
-                                        @foreach ($users as $user)
-                                        <tr class="" data-href="{{ route('show_user.gestionnaire', $user->id) }}">
-                                            <td>{{ $user->name }}</td>
-                                            <td>{{ $user->email }}</td>
-                                            <td>@if ($user->photo_url)
-                                                <img src="{{ $user->photo_url }}" alt="Photo" style="width: 30px; height: 30px;">
-                                                @else
-                                                <ion-icon name="person-circle-outline" style="width: 30px; height: 30px"></ion-icon>
-                                                @endif
-                                            </td>
-                                            <td>{{ $user->sexe }}</td>
-                                            <td>{{ $user->role->name ?? 'null' }}</td>
-                                            <td>{{ $user->created_at }}</td>
-                                            <td><a href="{{ route('edit_user.gestionnaire', $user->id) }}" class="btn btn-sm btn-primary">Modifier</a> 
-                                            <a href="{{ route('show_user.gestionnaire', $user->id) }}" class="btn btn-sm btn-info">
-                                                <ion-icon name="eye-outline"></ion-icon></a></td>
-
-                                        </tr>
-                                        @endforeach
-                                    </tbody>
-
-                                </table>
+                        <form action="{{ route('store_role.gestionnaire') }}" method="POST" enctype="multipart/form-data">
+                            @csrf
+                         
+                            <div class="card-header">
+                                <h4>Ajouter un role</h4>
                             </div>
-                        </div>
+                            <div class="card-body">
+                                <div class="form-group">
+                                    <label>Nom</label>
+                                    <input type="text" name="name" class="form-control">
+                                </div>
+                                <div class="form-group">
+                                    <label>Permissions</label>
+                                    <input type="text" name="permissions" class="form-control">
+                                </div>
+                                <div class="form-group">
+                                    <label>Taches</label>
+                                    <input type="text" name="taches" class="form-control">
+                                </div>
+
+                               
+                                <input type="submit" class="btn btn-primary mt-4" value="Ajouter">
+                            </div>
+                        </form>
                     </div>
                 </div>
             </div>
