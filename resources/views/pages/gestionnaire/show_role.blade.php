@@ -7,18 +7,7 @@
                 <div class="">
                     <div class="card author-box">
                         <div class="card-body">
-                            <div class="author-box-center">
-                                @if ($user->photo_url)
-                                <img src="{{ $user->photo_url }}" alt="Photo" style="width: 200px; height: 200px;">
-                                @else
-                                <ion-icon name="person-circle-outline" style="width: 200px; height: 200px"></ion-icon>
-                                @endif
-                                <div class="clearfix"></div>
-                                <div class="author-box-name">
-                                    <p> {{ $user->name }}</p>
-                                </div>
-                                <div class="author-box-job">{{ $role ?? 'Utilisateur simple' }}</div>
-                            </div>
+                           
                             <div class="text-center">
 
                                 <a href="#" class="btn btn-social-icon mr-1 btn-facebook">
@@ -36,58 +25,35 @@
                                 <div class="w-100 d-sm-none"></div>
                             </div>
                             <div class="card-header">
-                                <h4>Informations personnelles</h4>
+                                <h4>Informations sur le role du {{ $role->name }}</h4>
                             </div>
                             <div class="card-body">
                                 <div class="py-4">
                                     <p class="clearfix">
                                         <span class="float-left">
-                                            Sexe
+                                            Taches
                                         </span>
                                         <span class="float-right text-muted">
-                                            30-05-1998
+                                            {{ $role->taches ?? 'non renseigné'}}
                                         </span>
                                     </p>
                                     <p class="clearfix">
                                         <span class="float-left">
-                                            Date de Naissance
+                                            Permissions
                                         </span>
                                         <span class="float-right text-muted">
-                                            30-05-1998
+                                            {{ $role->permissions ?? 'non renseigné' }}
                                         </span>
                                     </p>
                                     <p class="clearfix">
                                         <span class="float-left">
-                                            Contact
+                                            Date de création
                                         </span>
                                         <span class="float-right text-muted">
-                                            (0123)123456789
+                                            {{ $role->created_at?->format('d/m/Y') ?? 'non renseigné'}}
                                         </span>
-                                    </p>
-                                    <p class="clearfix">
-                                        <span class="float-left">
-                                            Email
-                                        </span>
-                                        <span class="float-right text-muted">
-                                            test@example.com
-                                        </span>
-                                    </p>
-                                    <p class="clearfix">
-                                        <span class="float-left">
-                                            Facebook
-                                        </span>
-                                        <span class="float-right text-muted">
-                                            <a href="#">John Deo</a>
-                                        </span>
-                                    </p>
-                                    <p class="clearfix">
-                                        <span class="float-left">
-                                            Linkedin
-                                        </span>
-                                        <span class="float-right text-muted">
-                                            <a href="#">@johndeo</a>
-                                        </span>
-                                    </p>
+                                    </p>                                  
+                                    
                                 </div>
                             </div>
                         </div>

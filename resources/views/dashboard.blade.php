@@ -20,7 +20,9 @@
 
 </head>
 
-<body>
+<body class="bg-light">
+  <div class="loader"></div>
+  <div class="main-wrapper main-wrapper-1">
   <div class="navbar-bg"></div>
   <nav class="navbar navbar-expand-lg main-navbar sticky">
     <div class="form-inline mr-auto">
@@ -207,7 +209,7 @@
         <li class="dropdown">
           <a href="#" class="menu-toggle nav-link has-dropdown"><i data-feather="mail"></i><span>Candidatures</span></a>
         </li>
-        <li>
+        <li class="dropdown">
            <form method="POST" action="{{ route('logout') }}">
     @csrf
     <button type="submit" class="menu-toggle nav-link has-dropdown">
@@ -306,6 +308,7 @@
     <div class="footer-right">
     </div>
   </footer>
+</div>
 </body>
 
 </html>

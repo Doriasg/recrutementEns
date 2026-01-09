@@ -54,6 +54,7 @@ Route::post('/gestionnaire/roles', [roleController::class, 'store'])->name('stor
 Route::get('/gestionnaire/roles/{id}/edit', [roleController::class, 'edit'])->name('edit_role.gestionnaire');
 Route::put('/gestionnaire/roles/{id}', [roleController::class, 'update'])->name('update_role.gestionnaire');
 Route::delete('/gestionnaire/roles/{id}', [roleController::class, 'destroy'])->name('delete_role.gestionnaire');
+Route::get('/gestionnaire/roles/{id}', [roleController::class, 'show'])->name('show_role.gestionnaire');
 
 Route::middleware('auth')->group(function () {
     Route::get('/profile', [ProfileController::class, 'edit'])->name('profile.edit');

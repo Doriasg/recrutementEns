@@ -47,7 +47,7 @@
                 </td>
                 <td class="text-center">
                     {{-- Voir --}}
-                    <a href="#"
+                    <a href="{{ route('show_role.gestionnaire', $role->id) }}"
                        class="primary"
                        target="_blank"
                        title="Voir">

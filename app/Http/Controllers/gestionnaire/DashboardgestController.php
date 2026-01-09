@@ -2,6 +2,8 @@
 
 namespace App\Http\Controllers\gestionnaire;
 use App\Http\Controllers\Controller;
+use App\Models\User;
+use App\Models\Category;
 
 
 use Illuminate\Http\Request;
@@ -15,9 +17,11 @@ class DashboardgestController extends Controller
     {
         //
         $user = Auth::user(); 
+        $users = User::all();
+        $offres = Category::where('type', 'offre')->get();
         $role = $user->role->name ?? null;
 
-        return view('pages.gestionnaire.dashbord', compact('user', 'role'));
+        return view('pages.gestionnaire.dashbord', compact('user', 'role', 'users', 'offres'));
     }
 
     /**

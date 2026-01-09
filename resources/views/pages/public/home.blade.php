@@ -1,125 +1,199 @@
 @extends('public')
-
 @section('content')
+    <!-- LOADER -->
+    <div class="loader" id="loader">
+        <div class="loader-spinner"></div>
+    </div>
+
+    <!-- SCROLL PROGRESS -->
+    <div class="scroll-progress" id="scrollProgress"></div>
+
+    <!-- BACK TO TOP -->
+    <div class="back-to-top" id="backToTop">
+        <i class="fas fa-chevron-up"></i>
+    </div>
+
+    <!-- BOUTON POUR LES INSTRUCTIONS -->
+    <div class="instructions-toggle" id="instructionsToggle">
+        <i class="fas fa-info"></i>
+    </div>
+
+    <!-- INSTRUCTIONS -->
+    <div class="image-instructions" id="imageInstructions">
+        <h4>Instructions pour les images</h4>
+        <p>Pour changer les images du héros :</p>
+        <ol>
+            <li>Ouvrez le code dans un éditeur</li>
+            <li>Cherchez les classes .hero-slide-1 à .hero-slide-5</li>
+            <li>Remplacez les URLs dans 'background-image'</li>
+            <li>Pour ajouter vos images :<br> - Upload sur un hébergeur d'images<br> - Copiez le lien direct<br> - Collez-le dans le code</li>
+        </ol>
+        <p>Exemple :<br> background-image: url('https://monsite.com/mon-image.jpg');</p>
+    </div>
+
     <!-- HERO SECTION -->
-    <section class="hero-section">
+    <section class="hero-section" id="hero">
+        <div class="hero-background">
+            <!-- REMPLACEZ CES LIENS AVEC VOS PROPRES IMAGES -->
+            <div class="hero-slide hero-slide-1 active"></div>
+            <div class="hero-slide hero-slide-2"></div>
+            <div class="hero-slide hero-slide-3"></div>
+            <div class="hero-slide hero-slide-4"></div>
+            <div class="hero-slide hero-slide-5"></div>
+        </div>
+
         <div class="hero-overlay"></div>
-        <div class="hero-content">
-            <h1>Recrutement d'Enseignants</h1>
-            <p>Rejoignez notre équipe pédagogique et contribuez à former la prochaine génération d'ingénieurs et de techniciens supérieurs.</p>
-            <a href="#" class="cta-button">Postuler maintenant</a>
+
+        <!-- Floating elements -->
+        <div class="floating-element floating-1"></div>
+        <div class="floating-element floating-2"></div>
+
+        <div class="hero-content container">
+            <h1 class="animate__animated animate__fadeInUp">Recrutement d'Enseignants</h1>
+            <p class="animate__animated animate__fadeInUp">Rejoignez notre équipe pédagogique et contribuez à former la prochaine génération d'ingénieurs et de techniciens supérieurs.</p>
+            <a href="#offres" class="cta-button animate__animated animate__fadeInUp">Postuler maintenant</a>
+        </div>
+
+        <!-- Slider controls -->
+        <div class="hero-slider-controls">
+            <div class="slider-dot active" data-slide="0"></div>
+            <div class="slider-dot" data-slide="1"></div>
+            <div class="slider-dot" data-slide="2"></div>
+            <div class="slider-dot" data-slide="3"></div>
+            <div class="slider-dot" data-slide="4"></div>
+        </div>
+
+        <!-- Scroll indicator -->
+        <div class="hero-scroll-indicator">
+            <div class="scroll-arrow"></div>
         </div>
     </section>
 
     <!-- OFFRES SECTION -->
-    <section class="offers-section" id="offres">
-        <div class="offers-header">
-            <h2>Offres d'emploi actuelles</h2>
-            <p>Consultez les postes disponibles et postulez en ligne.</p>
-        </div>
-        <div class="offers-grid">
-            <!-- Offre 1 -->
-            <div class="offer-card">
-                <div class="offer-badge">Recrutement</div>
-                <div class="offer-content">
-                    <h3 class="offer-title">Enseignant en Génie Électrique</h3>
-                    <div class="offer-details">
-                        <div class="detail-item">
-                            <i class="fas fa-building"></i>
-                            <span>Département Génie Électrique</span>
+    <!-- OFFRES SECTION -->
+    <section class="offers-section section-hidden" id="offres">
+        <div class="container">
+            <div class="offers-header">
+                <h2>Offres d'emploi actuelles</h2>
+                <p>Consultez les postes disponibles et postulez en ligne.</p>
+            </div>
+
+            <div class="offers-grid">
+                <!-- Offre 1 -->
+                <div class="offer-card">
+                    <div class="offer-badge">Nouveau</div>
+                    <div class="offer-header">
+                        <h3 class="offer-title">Professeur de Mathématiques Appliquées</h3>
+                        <p class="offer-description">Enseignement des mathématiques appliquées aux étudiants en génie. Cours de niveau licence et master avec travaux pratiques.</p>
+                    </div>
+
+                    <div class="offer-content">
+                        <div class="deadline">
+                            <div class="deadline-content">
+                                <i class="fas fa-calendar-alt"></i>
+                                <div class="deadline-text">
+                                    <span class="deadline-label">Date limite</span>
+                                    <span class="deadline-date">15 Février 2024</span>
+                                </div>
+                            </div>
+                            <div class="deadline-status">
+                                <span class="offer-badge">Urgent</span>
+                            </div>
                         </div>
-                        <div class="detail-item">
-                            <i class="fas fa-clock"></i>
-                            <span>Temps plein</span>
-                        </div>
-                        <div class="detail-item">
-                            <i class="fas fa-map-marker-alt"></i>
-                            <span>Lokossa, Bénin</span>
+
+                        <div class="offer-footer">
+                            <div class="offer-salary">
+                                <i class="fas fa-money-bill-wave"></i> Salaire compétitif
+                            </div>
+                            <a href="#" class="apply-button">
+                                <i class="fas fa-paper-plane"></i> Postuler
+                            </a>
                         </div>
                     </div>
-                    <div class="deadline">
-                        <i class="fas fa-calendar-alt"></i> Date limite : <span>15 Janvier 2024</span>
+                </div>
+
+                <!-- Offre 2 -->
+                <div class="offer-card">
+                    <div class="offer-badge">Popular</div>
+                    <div class="offer-header">
+                        <h3 class="offer-title">Enseignant en Informatique Industrielle</h3>
+                        <p class="offer-description">Formation en programmation industrielle, automatisme et systèmes embarqués pour les futurs ingénieurs en informatique industrielle.</p>
                     </div>
-                    <div class="offer-footer">
-                        <div class="offer-count">2 Postes</div>
-                        <a href="#" class="apply-button">Détails</a>
+
+                    <div class="offer-content">
+                        <div class="deadline">
+                            <div class="deadline-content">
+                                <i class="fas fa-calendar-alt"></i>
+                                <div class="deadline-text">
+                                    <span class="deadline-label">Date limite</span>
+                                    <span class="deadline-date">28 Février 2024</span>
+                                </div>
+                            </div>
+                            <div class="deadline-status">
+                                <span class="offer-badge" style="background: var(--success-gradient)">Ouvert</span>
+                            </div>
+                        </div>
+
+                        <div class="offer-footer">
+                            <div class="offer-salary">
+                                <i class="fas fa-money-bill-wave"></i> À négocier
+                            </div>
+                            <a href="#" class="apply-button">
+                                <i class="fas fa-paper-plane"></i> Postuler
+                            </a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Offre 3 -->
+                <div class="offer-card">
+                    <div class="offer-badge">CDD</div>
+                    <div class="offer-header">
+                        <h3 class="offer-title">Chargé de Cours en Électronique</h3>
+                        <p class="offer-description">Enseignement des fondamentaux de l'électronique analogique et numérique aux étudiants de première et deuxième année.</p>
+                    </div>
+
+                    <div class="offer-content">
+                        <div class="deadline">
+                            <div class="deadline-content">
+                                <i class="fas fa-calendar-alt"></i>
+                                <div class="deadline-text">
+                                    <span class="deadline-label">Date limite</span>
+                                    <span class="deadline-date">10 Mars 2024</span>
+                                </div>
+                            </div>
+                            <div class="deadline-status">
+                                <span class="offer-badge" style="background: var(--info-gradient)">Bientôt</span>
+                            </div>
+                        </div>
+
+                        <div class="offer-footer">
+                            <div class="offer-salary">
+                                <i class="fas fa-money-bill-wave"></i> Selon expérience
+                            </div>
+                            <a href="#" class="apply-button">
+                                <i class="fas fa-paper-plane"></i> Postuler
+                            </a>
+                        </div>
                     </div>
                 </div>
             </div>
 
-            <!-- Offre 2 -->
-            <div class="offer-card">
-                <div class="offer-badge">Recrutement</div>
-                <div class="offer-content">
-                    <h3 class="offer-title">Enseignant en Génie Mécanique</h3>
-                    <div class="offer-details">
-                        <div class="detail-item">
-                            <i class="fas fa-building"></i>
-                            <span>Département Génie Mécanique</span>
-                        </div>
-                        <div class="detail-item">
-                            <i class="fas fa-clock"></i>
-                            <span>Temps plein</span>
-                        </div>
-                        <div class="detail-item">
-                            <i class="fas fa-map-marker-alt"></i>
-                            <span>Lokossa, Bénin</span>
-                        </div>
-                    </div>
-                    <div class="deadline">
-                        <i class="fas fa-calendar-alt"></i> Date limite : <span>26 Janvier 2024</span>
-                    </div>
-                    <div class="offer-footer">
-                        <div class="offer-count">2 Postes</div>
-                        <a href="#" class="apply-button">Détails</a>
-                    </div>
-                </div>
-            </div>
-
-            <!-- Offre 3 -->
-            <div class="offer-card">
-                <div class="offer-badge">Recrutement</div>
-                <div class="offer-content">
-                    <h3 class="offer-title">Enseignant en Informatique et Réseaux</h3>
-                    <div class="offer-details">
-                        <div class="detail-item">
-                            <i class="fas fa-building"></i>
-                            <span>Département Informatique</span>
-                        </div>
-                        <div class="detail-item">
-                            <i class="fas fa-clock"></i>
-                            <span>Temps plein</span>
-                        </div>
-                        <div class="detail-item">
-                            <i class="fas fa-map-marker-alt"></i>
-                            <span>Lokossa, Bénin</span>
-                        </div>
-                    </div>
-                    <div class="deadline">
-                        <i class="fas fa-calendar-alt"></i> Date limite : <span>31 Janvier 2024</span>
-                    </div>
-                    <div class="offer-footer">
-                        <div class="offer-count">2 Postes</div>
-                        <a href="#" class="apply-button">Détails</a>
-                    </div>
-                </div>
-            </div>
-        </div>
-
-        <div class="view-all-offers">
-            <a href="#" class="view-all-link">
+            <div class="view-all-offers">
+                <a href="#" class="view-all-link">
                 Voir toutes les offres
                 <i class="fas fa-arrow-right"></i>
             </a>
+            </div>
         </div>
     </section>
-
     <!-- PROCESS SECTION -->
-    <section class="process-section">
-        <div class="process-container">
+    <section class="process-section section-hidden">
+        <div class="process-container container">
             <div class="process-header">
                 <h2>Processus de Recrutement</h2>
             </div>
+
             <div class="process-steps">
                 <div class="process-step">
                     <div class="step-number">1</div>
@@ -161,159 +235,44 @@
     </section>
 
     <!-- STATS SECTION -->
-    <section class="stats-section">
-        <div class="stats-container">
-            <div class="stat-item">
-                <div class="stat-number">24</div>
-                <div class="stat-label">Postes Ouverts</div>
-            </div>
-            <div class="stat-item">
-                <div class="stat-number">356</div>
-                <div class="stat-label">Candidats</div>
-            </div>
-            <div class="stat-item">
-                <div class="stat-number">15</div>
-                <div class="stat-label">Départements</div>
-            </div>
-            <div class="stat-item">
-                <div class="stat-number">98</div>
-                <div class="stat-label">% Satisfaction</div>
+    <section class="stats-section section-hidden">
+        <div class="container">
+            <div class="stats-container">
+                <div class="stat-item">
+                    <div class="stat-number counter" data-count="24">0</div>
+                    <div class="stat-label">Postes Ouverts</div>
+                </div>
+                <div class="stat-item">
+                    <div class="stat-number counter" data-count="356">0</div>
+                    <div class="stat-label">Candidats</div>
+                </div>
+                <div class="stat-item">
+                    <div class="stat-number counter" data-count="15">0</div>
+                    <div class="stat-label">Départements</div>
+                </div>
+                <div class="stat-item">
+                    <div class="stat-number counter" data-count="98">0</div>
+                    <div class="stat-label">% Satisfaction</div>
+                </div>
             </div>
         </div>
     </section>
 
     <!-- CTA SECTION -->
-    <section class="cta-section">
-        <h2>Prêt à nous rejoindre ?</h2>
-        <p>Postulez dès maintenant et devenez membre de notre équipe pédagogique d'excellence.</p>
-        <div class="cta-buttons">
-            <a href="#" class="cta-button-primary">Postuler maintenant</a>
-            <a href="#" class="cta-button-secondary">Accéder à mon compte</a>
+    <section class="cta-section section-hidden">
+        <div class="container">
+            <h2>Prêt à nous rejoindre ?</h2>
+            <p>Postulez dès maintenant et devenez membre de notre équipe pédagogique d'excellence.</p>
+            <div class="cta-buttons">
+                <a href="#" class="cta-button-primary">Postuler maintenant</a>
+                <a href="#" class="cta-button-secondary">Accéder à mon compte</a>
+            </div>
         </div>
     </section>
+
+
+
+    <!-- PARTICLES CONTAINER -->
+    <div class="particles-container" id="particlesContainer"></div>
 @endsection
-
-@push('page-styles')
-    <!-- Styles spécifiques à la page home -->
-    <style>
-        /* Styles additionnels si nécessaire */
-        .hero-section {
-            min-height: 80vh;
-            display: flex;
-            align-items: center;
-            background: linear-gradient(rgba(10, 63, 143, 0.9), rgba(11, 79, 163, 0.9)),
-                        url('https://images.unsplash.com/photo-1523050854058-8df90110c9f1?ixlib=rb-4.0.3&auto=format&fit=crop&w=1470&q=80');
-            background-size: cover;
-            background-position: center;
-            background-attachment: fixed;
-            position: relative;
-        }
-        
-        .hero-overlay {
-            position: absolute;
-            top: 0;
-            left: 0;
-            right: 0;
-            bottom: 0;
-            background: rgba(0, 0, 0, 0.3);
-        }
-        
-        .hero-content {
-            position: relative;
-            z-index: 2;
-            color: white;
-            text-align: center;
-            padding: 2rem;
-            max-width: 1200px;
-            margin: 0 auto;
-        }
-        
-        .hero-content h1 {
-            font-size: 3.5rem;
-            margin-bottom: 1rem;
-        }
-        
-        .hero-content p {
-            font-size: 1.25rem;
-            margin-bottom: 2rem;
-            max-width: 800px;
-            margin-left: auto;
-            margin-right: auto;
-        }
-        
-        .cta-button {
-            display: inline-block;
-            padding: 1rem 2rem;
-            background: #ff6b35;
-            color: white;
-            text-decoration: none;
-            border-radius: 5px;
-            font-weight: bold;
-            transition: background 0.3s ease;
-        }
-        
-        .cta-button:hover {
-            background: #e55a2b;
-        }
-    </style>
-@endpush
-
-@push('page-scripts')
-    <!-- Script pour le changement d'image du hero -->
-    <script>
-        document.addEventListener('DOMContentLoaded', function() {
-            const heroSection = document.querySelector('.hero-section');
-            const images = [
-                'https://images.unsplash.com/photo-1523050854058-8df90110c9f1?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1470&q=80',
-                'https://images.unsplash.com/photo-1523050854058-8df90110c9f1?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1470&q=80',
-                'https://images.unsplash.com/photo-1523050854058-8df90110c9f1?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1470&q=80'
-            ];
-            let currentIndex = 0;
-
-            function changeBackground() {
-                if (heroSection) {
-                    heroSection.style.backgroundImage = linear-gradient(rgba(10, 63, 143, 0.9), rgba(11, 79, 163, 0.9)), url('${images[currentIndex]}');
-                    currentIndex = (currentIndex + 1) % images.length;
-                }
-            }
-
-            // Changer l'image toutes les 30 secondes
-            setInterval(changeBackground, 30000);
-            
-            // Ajouter une animation aux statistiques au défilement
-            const statsSection = document.querySelector('.stats-section');
-            const statNumbers = document.querySelectorAll('.stat-number');
-            
-            function animateStats() {
-                statNumbers.forEach(stat => {
-                    const target = parseInt(stat.textContent);
-                    let current = 0;
-                    const increment = Math.ceil(target / 50);
-                    const timer = setInterval(() => {
-                        current += increment;
-                        if (current >= target) {
-                            stat.textContent = target;
-                            clearInterval(timer);
-                        } else {
-                            stat.textContent = current;
-                        }
-                    }, 30);
-                });
-            }
-            
-            // Observer pour animer les stats quand ils sont visibles
-            if (statsSection) {
-                const observer = new IntersectionObserver((entries) => {
-                    entries.forEach(entry => {
-                        if (entry.isIntersecting) {
-                            animateStats();
-                            observer.unobserve(entry.target);
-                        }
-                    });
-                }, { threshold: 0.5 });
-                
-                observer.observe(statsSection);
-            }
-        });
-    </script>
-@endpush
+   

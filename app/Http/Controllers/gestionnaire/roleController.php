@@ -58,7 +58,8 @@ class roleController extends Controller
     public function edit(string $id)
     {
         //
-        return view('pages.gestionnaire.edit_role');
+        $role = Role::findOrFail($id);
+        return view('pages.gestionnaire.edit_role', compact('role'));
     }
 
     /**
@@ -67,13 +68,14 @@ class roleController extends Controller
     public function update(Request $request, string $id)
     {
         //
+        $role = Role::findOrFail($id);
+       
         $validated = $request->validate([
             'name' => 'required|string|max:255',
             'permissions' => 'nullable|string',
             'taches' => 'nullable|string',
         ]);
-        $role = Role::findOrFail($id);
-        $role->update($validated);
+         $role->update($validated);
         return redirect()->route('role.gestionnaire')->with('success', 'Rôle mis à jour avec succès.');
     }
 
