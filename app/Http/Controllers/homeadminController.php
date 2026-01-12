@@ -1,27 +1,19 @@
 <?php
 
-namespace App\Http\Controllers\examinateur;
-use App\Models\Category;
+namespace App\Http\Controllers;
 
-
-use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 
-class evalController extends Controller
+class homeadminController extends Controller
 {
     /**
      * Display a listing of the resource.
      */
-  
-public function index()
-{
-    // On récupère toutes les offres avec leurs candidatures associées
-    $offres = Category::where('type', 'offre')
-        ->with('candidatures') // charge les candidatures associées
-        ->get();
-
-    return view('pages.examiner.evaluations', compact('offres'));
-}
+    public function index()
+    {
+        //
+        return view('accueil_dashboard');
+    }
 
     /**
      * Show the form for creating a new resource.

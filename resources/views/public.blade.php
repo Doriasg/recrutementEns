@@ -16,7 +16,7 @@
     <link rel="stylesheet" href="{{ asset('css/home.css') }}">
     <link rel="stylesheet" href="{{ asset('css/header.css') }}">
     <link rel="stylesheet" href="{{ asset('css/footer.css') }}">
-
+    
 
 
     <!-- Styles spécifiques aux pages -->
@@ -31,7 +31,7 @@
             <div class="header-top">
                 <div class="header-left">
                     <div class="logo-container">
-                        <img src="{{ asset('images/logo-insti.png') }}" alt="INSTI" class="logo-inst">
+                        <img src="{{ asset('img/logo_insti.jpeg') }}" alt="INSTI" class="logo-inst">
                         <div class="header-title">
                             <h1>INSTI</h1>
                             <span>
@@ -51,7 +51,7 @@
                         <i class="fas fa-eye"></i>
                         <span>Observatoire</span>
                     </div>
-                    <img src="{{ asset('images/logo-unstim.png') }}" alt="UNSTIM" class="unstim-logo-top">
+                    <img src="{{ asset('img/logo_unstim.jpeg') }}" alt="UNSTIM" class="unstim-logo-top">
                 </div>
 
                 <!-- Hamburger Menu -->
@@ -70,6 +70,7 @@
                     <a href="#offres">OFFRES</a>
                     <a href="#">CONTACTS</a>
                     @auth
+                    <a href="{{ route('dashboard') }}">DASHBOARD</a>
                     <form action="{{ route('logout') }}" method="POST">
                         @csrf
 
@@ -505,7 +506,7 @@
         1. Pour changer les images du héros :
            - Ouvrez le code dans un éditeur de texte
            - Cherchez les lignes avec .hero-slide-1 à .hero-slide-5
-           - Remplacez les URLs dans 'background-image: url('...')' 
+           - Remplacez les URLs dans 'background-imagebackground-image: url('...')' 
            - Exemple : background-image: url('https://votresite.com/votre-image.jpg');
         
         2. Pour changer les images des offres d'emploi :

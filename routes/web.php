@@ -20,17 +20,32 @@ use App\Http\Controllers\teacher\candidController;
 use App\Http\Controllers\teacher\offretController;
 use App\Http\Controllers\gestionnaire\offreController;
 use App\Http\Controllers\gestionnaire\roleController;
+use App\Http\Controllers\dossierController;
+use App\Http\Controllers\homeadminController;
 //public routes
 Route::get('/', [homeController::class, 'index'])->name('home');
+Route::get('/accueil_dashboard', [homeadminController::class, 'index'])->name('accueil_dashboard');
 //teacher routes
-Route::get('/teacher/dashboard', [ dashController::class, 'index'])->name('teacher.dashboard');
-Route::get('/teacher/formulaire-candidature', [formController::class, 'index'])->name('candidater');
-Route::get('/teacher/profil', [profilController::class, 'index'])->name('profil.teacher');
-Route::get('/teacher/candidatures', [candidController::class, 'index'])->name('user.Candidatures');
+Route::get('/teacher/dashboard', [ dashController::class, 'index'])->name('dashboard.enseignant');
+
+
+Route::get('/teacher/formulaire-candidature/{id}', [OffreController::class, 'createCandidature'])
+    ->name('candidater.enseignant');
+
+Route::post('/teacher/formulaire-candidature/{id}', [OffreController::class, 'storeCandidature'])
+    ->name('store_candidature.enseignant');
+
+
+
+Route::get('/teacher/candidatures', [candidController::class, 'index'])->name('candidatures.enseignant');
 Route::get('/teacher/offres', [offretController::class, 'index'])->name('offres.teacher');
+Route::get('/teacher/dossier', [ dossierController::class, 'index'])->name('dossier.enseignant');
+Route::post('/candidater/{id}', [offreController::class, 'storeCandidature'])->name('store_candidature');
+Route::post('/dossier/{id}', [offreController::class, 'storeDossier'])->name('store_dossier.enseignant');
 //examinateurs
-Route::get('/examinateur/dashboard', [ dashexController::class, 'index'])->name('dashboard.examinateur');
-Route::get('/examinateur/evaluations', [ evalController::class, 'index'])->name('evaluations.examinateur');
+Route::get('/examinateur/dashboard', [ dashexController::class, 'index'])->name('dashboard.evaluateur');
+Route::get('/examinateur/evaluations', [ evalController::class, 'index'])->name('evaluations.evaluateur');
+Route::get('/examinateur/candidature/{id}', [ offreController::class, 'show_candidature'])->name('show_candidature.evaluateur');
 //admin routes
 Route::get('/admin/dashboard', [ dashadminController::class, 'index'])->name('dashboard.admin');
 Route::get('/admin/offres', [ offresController::class, 'index'])->name('offres.admin');
@@ -47,7 +62,10 @@ Route::post('/gestionnaire/offres', [offreController::class, 'store'])->name('st
 Route::get('/gestionnaire/offres/{id}/edit', [offreController::class, 'edit'])->name('edit_offre.gestionnaire');
 Route::put('/gestionnaire/offres/{id}', [offreController::class, 'update'])->name('update_offre.gestionnaire');
 Route::delete('/gestionnaire/offres/{id}', [offreController::class, 'destroy'])->name('delete_offre.gestionnaire');
-Route::get('/dashboard', [DashboardController::class, 'index'])->middleware(['auth', 'verified'])->name('dashboard');
+Route::get('/dashboard', [DashboardController::class, 'index'])
+    ->name('dashboard')
+    ->middleware('auth');
+
 Route::get('/gestionnaire/roles', [roleController::class, 'index'])->name('role.gestionnaire');
 Route::get('/gestionnaire/roles/create', [roleController::class, 'create'])->name('create_role.gestionnaire');
 Route::post('/gestionnaire/roles', [roleController::class, 'store'])->name('store_role.gestionnaire');

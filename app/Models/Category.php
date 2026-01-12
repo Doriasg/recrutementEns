@@ -58,4 +58,20 @@ class Category extends Model
     {
         return $this->belongsTo(Category::class, 'parent3_id');
     }
+    public function candidatures()
+    {
+        return $this->hasMany(Category::class, 'parent1_id');
+    }
+
+    // Si c'est une candidature, récupérer l'offre
+    public function offre()
+    {
+        return $this->belongsTo(Category::class, 'parent1_id');
+    }
+
+    // Chaque enregistrement appartient à un utilisateur
+    public function user()
+    {
+        return $this->belongsTo(User::class);
+    }
 }

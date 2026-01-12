@@ -20,8 +20,9 @@ class DashboardgestController extends Controller
         $users = User::all();
         $offres = Category::where('type', 'offre')->get();
         $role = $user->role->name ?? null;
+        $candidatures = Category::where('type', 'candidature')->get();
 
-        return view('pages.gestionnaire.dashbord', compact('user', 'role', 'users', 'offres'));
+        return view('pages.gestionnaire.dashbord', compact('user', 'role', 'users', 'offres', 'candidatures'));
     }
 
     /**

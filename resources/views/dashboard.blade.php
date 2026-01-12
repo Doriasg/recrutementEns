@@ -238,19 +238,13 @@
         </li>
         @elseif (Auth::user()?->role?->name == 'evaluateur'):
         <li class="dropdown">
-          <a href="{{ route('dashboard.gestionnaire') }}" class="nav-link"><i data-feather="monitor"></i><span>Tableau de bord</span></a>
+          <a href="{{ route('dashboard.evaluateur') }}" class="nav-link"><i data-feather="monitor"></i><span>Tableau de bord</span></a>
         </li>
         <li class="dropdown">
-          <a href="{{ route('users.gestionnaire') }}" class="nav-link"><i data-feather="monitor"></i><span>Utilisateurs</span></a>
+          <a href="{{ route('evaluations.evaluateur') }}" class="nav-link"><i data-feather="monitor"></i><span>Evaluations</span></a>
         </li>
+..
 
-        <li class="dropdown">
-          <a href="#" class="menu-toggle nav-link has-dropdown"><i data-feather="command"></i><span>Offres</span></a>
-          <ul class="dropdown-menu">
-            <li><a class="nav-link" href="chat.html">Voir les offres</a></li>
-            <li><a class="nav-link" href="portfolio.html">Ajouter</a></li>
-          </ul>
-        </li>
          <li>
            <form method="POST" action="{{ route('logout') }}">
     @csrf
@@ -262,28 +256,27 @@
           
         </li>
 
-        @elseif (Auth::user()?->role?->name == 'enseignant'):
-        <li class="dropdown">
-          <a href="{{ route('teacher.dashboard') }}" class="nav-link"><i data-feather="monitor"></i><span>Tableau de bord</span></a>
-        </li>
-        <li class="dropdown">
-          <a href="{{ route('user.Candidatures') }}" class="nav-link"><i data-feather="monitor"></i><span>Mes candidatures</span></a>
-        </li>
-
-        <li class="dropdown">
-          <a href="{{ route('offres.teacher') }}" class="nav-link"><i data-feather="command"></i><span>Offres</span></a>
-        </li>
+        @else:
          <li class="dropdown">
-          <a href="{{ route('profil.teacher') }}" class="nav-link"><i data-feather="command"></i><span>Profil</span></a>
+          <a href="{{ route('dashboard.enseignant') }}" class="nav-link"><i data-feather="monitor"></i><span>Tableau de board</span></a>
         </li>
-         <li>
-           <form method="POST" action="{{ route('logout') }}">
+        <li class="dropdown">
+          <a href="{{ route('candidatures.enseignant') }}" class="nav-link"><i data-feather="command"></i><span>Mes candidatures</span></a>
+        </li>   
+        <li class="dropdown">
+          <a href="{{ route('home') }}" class="nav-link"><i data-feather="monitor"></i><span>Accueil</span></a>
+        </li>
+        
+        <li>
+             <form method="POST" action="{{ route('logout') }}">
     @csrf
     <button type="submit" class="menu-toggle nav-link has-dropdown">
       <i data-feather="monitor"></i>
         Se déconnecter
     </button>
 </form>
+        </li>
+          
           
         </li>
         @endif
@@ -297,6 +290,7 @@
     <div class="loader"></div>
     <div id="app">
       <div class="main-wrapper main-wrapper-1">
+        
         @yield('content')
       </div>
     </div>
