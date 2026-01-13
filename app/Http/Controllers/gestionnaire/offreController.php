@@ -143,4 +143,16 @@ class OffreController extends Controller
 $candidature = Category::FindOrFail($id);
 return view ("pages.examiner.show_candidature", compact("candidature"));
     }
+    public function validate_candidature(string $id){
+$candidature = Category::FindOrFail($id);
+$candidature->status = 'validée';
+$candidature->save();
+return back()->with('success', 'Candidature validée avec succès.');
+    }
+    public function reject_candidature(string $id){
+        $candidature = Category::FindOrFail($id);
+        $candidature->status = 'rejetée';
+        $candidature->save();
+        return back()->with('success', 'Candidature rejetée avec succès.'); 
+    }
 }

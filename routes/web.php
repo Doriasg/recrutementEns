@@ -46,6 +46,8 @@ Route::post('/dossier/{id}', [offreController::class, 'storeDossier'])->name('st
 Route::get('/examinateur/dashboard', [ dashexController::class, 'index'])->name('dashboard.evaluateur');
 Route::get('/examinateur/evaluations', [ evalController::class, 'index'])->name('evaluations.evaluateur');
 Route::get('/examinateur/candidature/{id}', [ offreController::class, 'show_candidature'])->name('show_candidature.evaluateur');
+Route::put('/examinateur/candidature/{id}', [ offreController::class, 'validate_candidature'])->name('update_candidature.evaluateur');
+Route::put('/examinateur/candidature/reject/{id}', [ offreController::class, 'reject_candidature'])->name('reject_candidature.evaluateur');
 //admin routes
 Route::get('/admin/dashboard', [ dashadminController::class, 'index'])->name('dashboard.admin');
 Route::get('/admin/offres', [ offresController::class, 'index'])->name('offres.admin');
