@@ -3,7 +3,10 @@
 namespace App\Http\Controllers\gestionnaire;
 use App\Http\Controllers\Controller;
 use App\Models\User;
+use App\Models\Appel;
 use App\Models\Category;
+use App\Models\AnneeAcademique;
+use App\Models\Candidatures;
 
 
 use Illuminate\Http\Request;
@@ -16,13 +19,17 @@ class DashboardgestController extends Controller
     public function index()
     {
         //
-        $user = Auth::user(); 
+        $user = Auth::user();
+        $annee = AnneeAcademique::where('active', 1)-> first();
+        if(!$annee){
+            $message = 'Aucune année académique en cours';
+        }
+        //on récupère tous les utilisateurs et les appels
         $users = User::all();
-        $offres = Category::where('type', 'offre')->get();
-        $role = $user->role->name ?? null;
-        $candidatures = Category::where('type', 'candidature')->get();
+        $appels = Appel::with('candidatures')->get();
+        $candidatures = Candidatures::all();
 
-        return view('pages.gestionnaire.dashbord', compact('user', 'role', 'users', 'offres', 'candidatures'));
+        return view('pages.gestionnaire.dashbord', compact('users', 'user', 'appels', 'candidatures','annee'));
     }
 
     /**

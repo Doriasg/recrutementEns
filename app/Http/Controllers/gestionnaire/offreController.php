@@ -4,7 +4,11 @@ namespace App\Http\Controllers\gestionnaire;
 
 use App\Http\Controllers\Controller;
 use App\Models\Category;
+use App\Models\AnneeAcademique;
 use Illuminate\Http\Request;
+use App\Models\Appel;
+use App\Models\User;
+use App\Models\Candidatures;
 use Illuminate\Support\Facades\Auth;
 
 class OffreController extends Controller
@@ -15,36 +19,45 @@ class OffreController extends Controller
 
     public function index()
     {
-        $offres = Category::where('type', 'offre')->get();
-        return view('pages.gestionnaire.offres', compact('offres'));
+        $annee = AnneeAcademique::where('active', 1);
+        $offres = Appel::all();
+        $date_actuelle = now();
+        return view('pages.gestionnaire.offres', compact('offres', 'annee', 'date_actuelle'));
     }
 
     public function create()
     {
-        return view('pages.gestionnaire.add_offre');
+        $annees = AnneeAcademique::all();
+        $semestres = Category::where('type', 'semestre')->get();
+        return view('pages.gestionnaire.add_offre', compact('annees', 'semestres'));
     }
 
     public function store(Request $request)
     {
         $validated = $request->validate([
-            'name'        => 'required|string|max:255',
-            'description' => 'required|string',
+            'title'        => 'required|string|max:255',
+            'annee_id'        => 'required|int',
+            'semestre_id'        => 'required|int',
+            'description' => 'nullable|string',
             'date_fin'    => 'required|date',
             'fichier_url' => 'required|file|mimes:pdf,doc,docx|max:2048',
+            
         ]);
 
         $filePath = $request->file('fichier_url')->store('offres', 'public');
 
-        Category::create([
-            'type'        => 'offre',
-            'name'        => $validated['name'],
+        Appel::create([
+            'title'        => $validated['title'],
             'description' => $validated['description'],
+            'semestre_id'  => $validated['semestre_id'],
+            'annee_id' => $validated['annee_id'],
             'fichier_url' => $filePath,
             'date_debut'  => now(),
             'date_fin'    => $validated['date_fin'],
-            'module_id'   => 2,
-            'status'      => now()->gt($validated['date_fin']) ? 'expirée' : 'active',
+            
+           
         ]);
+        
 
         return redirect()->route('offres.gestionnaire')
             ->with('success', 'Offre créée avec succès.');
@@ -93,52 +106,51 @@ class OffreController extends Controller
 // Affichage du formulaire
  public function createCandidature(string $id)
     {
-        $offre = Category::findOrFail($id); // Récupère l'offre
-        return view('pages.teacher.formulaire-candidature', compact('offre'));
+        $ues = Category::where('type', 'ue')->get();
+        $appel = Appel::findOrFail($id); // Récupère l'offre
+        return view('pages.teacher.formulaire-candidature', compact('appel', 'ues'));
     }
 
     // Soumission du formulaire
-    public function storeCandidature(Request $request, string $id)
-    {
-        // Validation des champs
-        $validated = $request->validate([
-            'name' => 'required|string|max:255',
-            'sexe' => 'required|string|max:10',
-            'date_naissance' => 'required|date',
-            'contact' => 'required|string|max:20',
-            'email' => 'required|email|max:255',
-            'cv' => 'nullable|file|mimes:pdf,doc,docx|max:2048',
-            'attestation' => 'nullable|file|mimes:pdf,doc,docx|max:2048',
-            'diplome' => 'nullable|file|mimes:pdf,doc,docx|max:2048',
-            'demande' => 'nullable|file|mimes:pdf,doc,docx|max:2048',
-        ]);
+  public function storeCandidature(Request $request, $id)
+{
+    // Validation
+    $validated = $request->validate([
+        'nom' => 'required|string',
+        'prenom' => 'required|string',
+        'sexe' => 'required|in:M,F',
+        'photo_url' => 'required|image',
+        'date_naissance' => 'required|date',
+        'lieu_naissance' => 'required|string',
+        'telephone' => 'required|string',
+        'adresse' => 'required|string',
+        'email' => 'required|email',
+        'diplome' => 'required|file',
+        'ifu' => 'required|string',
+        'ue_id' => 'required|exists:categories,id',
+        'cv' => 'required|file',
+    ]);
 
-        // Vérifier que l'offre existe
-        $offre = Category::findOrFail($id);
+    // Stockage des fichiers
+    $photoPath = $request->file('photo_url')->store('photos');
+    $diplomePath = $request->file('diplome')->store('diplomes');
+    $cv = $request->file('cv')->store('cvs');
 
-        // Préparer les fichiers
-        $cv = $request->hasFile('cv') ? $request->file('cv')->store('dossiers', 'public') : null;
-        $attestation = $request->hasFile('attestation') ? $request->file('attestation')->store('dossiers', 'public') : null;
-        $diplome = $request->hasFile('diplome') ? $request->file('diplome')->store('dossiers', 'public') : null;
-        $demande = $request->hasFile('demande') ? $request->file('demande')->store('dossiers', 'public') : null;
+    // Création de la candidature
+    Candidatures::create([
+    'user_id' => auth::user()->id,
+    'appel_id'=> $id, // <-- juste l'ID, pas l'objet entier
+    'ue_id' => $validated['ue_id'],
+    'nom' => $validated['nom'],
+    'vue' => 0,
+    'statut' => 'En attente',
+]);
 
-        // Créer la candidature
-        $candidature = Category::create([
-            'type' => 'candidature',
-            'user_id' => Auth::id(),
-            'parent1_id' => $offre->id, 
-            'name' => $validated['name'],
-            'cv' => $cv,
-            'attestion' => $attestation, // attention : dans ton model tu as 'attestion' avec un seul "t"
-            'diplome' => $diplome,
-            'demande' => $demande,
-            'status' => 'en attente',
-            'module_id' => 2, // Module pour les enseignants
-        ]);
+    return redirect()->route('dashboard.enseignant')->with('success', 'Candidature soumise avec succès !');
+}
 
-        return redirect()->route('dashboard.enseignant')
-            ->with('success', 'Candidature soumise avec succès.');
-    }
+
+
     public function show_candidature(string $id){
 $candidature = Category::FindOrFail($id);
 return view ("pages.examiner.show_candidature", compact("candidature"));

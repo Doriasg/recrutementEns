@@ -1,6 +1,7 @@
 <?php
 
 namespace App\Http\Controllers;
+use App\Models\AnneeAcademique;
 
 use Illuminate\Support\Facades\Auth;
 
@@ -8,20 +9,24 @@ class DashboardController extends Controller
 {
     public function index()
     {
-        
+         $annee = AnneeAcademique::where('active', 1)-> first();
+         $message = "";
+        if(!$annee){
+            $message = 'Aucune année académique en cours';
+        }
         $user = Auth::user(); 
         $role = $user->role->name;
         if ($role === 'administrateur') {
-            return redirect()->route('dashboard.administrateur');
-        } elseif ($role === 'evaluateur') {
-            return redirect()->route('dashboard.evaluateur');
-        } elseif ($role === 'gestionnaire') {
-            return redirect()->route('dashboard.gestionnaire');
+            return view('pages.admin.dashboard', compact('annee', 'message'));
+        } elseif ($role === 'Evaluateur') {
+            return view('pages.examiner.dashboard', compact('annee', 'message'));
+        } elseif ($role === 'Super administrateur') {
+            return view('pages.gestionnaire.dashboard', compact('annee', 'message'));;
         }
-        elseif ($role === 'enseignant') {
-            return redirect()->route('dashboard.enseignant');
+        elseif ($role === 'user') {
+            return view('pages.teacher.dashboard', compact('annee', 'message'));
         }
-        print('Nou ne pouvons pas accéder à cette page');
+        print('Nous ne pouvons pas accéder à cette page');
     }
     
 }

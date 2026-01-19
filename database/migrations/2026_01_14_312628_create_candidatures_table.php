@@ -14,10 +14,11 @@ return new class extends Migration
         Schema::create('candidatures', function (Blueprint $table) {
             $table->id();
             $table->foreignId('user_id')->constrained('users')->cascadeOnDelete();
-            $table->foreignId('ue_id')->constrained('categorie')->cascadeOnDelete();
+            $table->foreignId('ue_id')->constrained('categories')->cascadeOnDelete();
             $table->boolean('vue')-> default(0);
             $table->string('statut')-> default('En attente');
             $table->string('decision')-> nullable();
+             $table->foreignId('appel_id')->constrained('appels')->cascadeOnDelete();
             $table->timestamps();
         });
     }

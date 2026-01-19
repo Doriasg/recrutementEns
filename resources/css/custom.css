@@ -1,4 +1,42 @@
+/* Sidebar lien actif */
+.sidebar-menu li.active > a.nav-link {
+  background-color: #1e3a8a; /* bleu foncé */
+  color: #fff;
+  font-weight: 600;
+}
 
-/*# sourceMappingURL=data:application/json;charset=utf8;base64,eyJ2ZXJzaW9uIjozLCJmaWxlIjoiY3VzdG9tLmNzcyIsInNvdXJjZXMiOlsiY3VzdG9tLnNjc3MiXSwibmFtZXMiOltdLCJtYXBwaW5ncyI6IiJ9 */
+.sidebar-menu li.active > a.nav-link i {
+  color: #fff;
+}
 
-/*# sourceMappingURL=custom.css.map */
+/* Dropdown ouvert actif */
+.sidebar-menu li.dropdown.active > a.nav-link {
+  background-color: #1e3a8a;
+  color: #fff;
+}
+
+.sidebar-menu li.dropdown.active > a.nav-link i {
+  color: #fff;
+}
+
+/* Hover */
+.sidebar-menu a.nav-link:hover {
+  background-color: #3b82f6;
+  color: #fff;
+}
+
+.sidebar-menu a.nav-link:hover i {
+  color: #fff;
+}
+
+/* Déconnexion */
+.logout-link {
+  display: flex;
+  align-items: center;
+  color: #f03e3e; /* rouge */
+  font-weight: 500;
+}
+
+.logout-link i {
+  margin-right: 10px;
+}

@@ -18,18 +18,7 @@
     <i class="fas fa-info"></i>
 </div>
 
-<!-- INSTRUCTIONS -->
-<div class="image-instructions" id="imageInstructions">
-    <h4>Instructions pour les images</h4>
-    <p>Pour changer les images du héros :</p>
-    <ol>
-        <li>Ouvrez le code dans un éditeur</li>
-        <li>Cherchez les classes .hero-slide-1 à .hero-slide-5</li>
-        <li>Remplacez les URLs dans 'background-image'</li>
-        <li>Pour ajouter vos images :<br> - Upload sur un hébergeur d'images<br> - Copiez le lien direct<br> - Collez-le dans le code</li>
-    </ol>
-    <p>Exemple :<br> background-image: url('https://monsite.com/mon-image.jpg');</p>
-</div>
+
 
 <!-- HERO SECTION -->
 <section class="hero-section" id="hero">
@@ -49,18 +38,15 @@
     <div class="floating-element floating-2"></div>
 
     <div class="hero-content container">
-        <h1 class="animate__animated animate__fadeInUp">Recrutement des enseignants</h1>
+        <h1 class="animate__animated animate__fadeInUp">Bienvenue à l'INSTI</h1>
         <p class="animate__animated animate__fadeInUp">Rejoignez notre équipe pédagogique et contribuez à former la prochaine génération d'ingénieurs et de techniciens supérieurs.</p>
         <a href="#offres" class="cta-button animate__animated animate__fadeInUp">Postuler maintenant</a>
     </div>
 
     <!-- Slider controls -->
     <div class="hero-slider-controls">
-        <div class="slider-dot active" data-slide="0"></div>
-        <div class="slider-dot" data-slide="1"></div>
-        <div class="slider-dot" data-slide="2"></div>
-        <div class="slider-dot" data-slide="3"></div>
-        <div class="slider-dot" data-slide="4"></div>
+        <div class="hero-slide"></div>
+
     </div>
 
     <!-- Scroll indicator -->
@@ -75,17 +61,19 @@
     <div class="container">
         <div class="offers-header">
             <h2>Offres d'emploi actuelles</h2>
+         @if($appels->isnotEmpty())
             <p>Consultez les postes disponibles et postulez en ligne.</p>
         </div>
- 
+
         <div class="offers-grid">
-     @foreach($offres as $offre)      
+           
+            @foreach($appels as $appel)
             <!-- Offre 1 -->
             <div class="offer-card col-md-4">
-                
+
                 <div class="offer-header">
-                    <h3 class="offer-title">{{ $offre->name }}</h3>
-                    <p class="offer-description">{{ $offre->description }}</p>
+                    <h3 class="offer-title">{{ $appel->title }}</h3>
+                    <p class="offer-description">{{ $appel->description }}</p>
                 </div>
 
                 <div class="offer-content">
@@ -94,31 +82,31 @@
                             <i class="fas fa-calendar-alt"></i>
                             <div class="deadline-text">
                                 <span class="deadline-label">Date limite</span>
-                                <span class="deadline-date">{{ $offre->date_fin }}</span>
+                                <span class="deadline-date">{{ $appel->date_fin}}</span>
                             </div>
-                           
+
                         </div>
                     </div>
                     <div>
-                         <a href="{{ asset('storage/' . $offre->fichier_url) }}" class="download-link">
-                                <i class="fas fa-download"></i> Détails
-                            </a>
+                        <a href="{{ asset('storage/' . $appel->fichier_url) }}" class="download-link">
+                            <i class="fas fa-download"></i> Détails
+                        </a>
                     </div>
                     <div class="offer-footer">
                         <div class="offer-salary">
                             <i class="fas fa-money-bill-wave"></i> Salaire compétitif
                         </div>
-                       <a href="{{ auth()->check() 
-        ? route('candidater.enseignant', $offre->id) 
-        : route('login') }}" 
+                        <a href="{{ auth()->check() ? route('candidater.enseignant', $appel->id) : route('login') }}"
    class="apply-button">
-    <i class="fas fa-paper-plane"></i> Postuler
+   <i class="fas fa-paper-plane"></i> Postuler
 </a>
+
 
                     </div>
                 </div>
             </div>
-                    @endforeach
+            @endforeach
+           
         </div>
 
         <div class="view-all-offers">
@@ -127,6 +115,9 @@
                 <i class="fas fa-arrow-right"></i>
             </a>
         </div>
+         @else
+            <div>{{ "Aucun appel en cours" }}</div>
+            @endif
     </div>
 </section>
 <!-- PROCESS SECTION -->

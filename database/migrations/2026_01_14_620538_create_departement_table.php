@@ -11,9 +11,11 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::table('appels', function (Blueprint $table) {
-            //
-            $table-> dateTime('date_limite');
+        Schema::create('departement', function (Blueprint $table) {
+            $table->id();
+            $table->string('name');
+            $table->string('filieres')->nullable();
+            $table->timestamps();
         });
     }
 
@@ -22,9 +24,6 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::table('appels', function (Blueprint $table) {
-            //
-            $table->dropColumn('date_limite');
-        });
+        Schema::dropIfExists('departement');
     }
 };

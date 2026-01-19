@@ -19,7 +19,7 @@
                                 <div class="hero-content">
                                     <div class="row align-items-center">
                                         <div class="col-md-8">
-                                            <h2 class="text-dark">Bienvenue {{ Auth::user()->name ?? 'Examinateur' }}</h2>
+                                            <h2 class="text-dark">Bienvenue {{ Auth::user()-> nom }} {{Auth::user()-> prenom}} </h2>
                                             <div class="mt-3">
                                                 <div class="badge badge-info mr-2">
                                                     <i class="fas fa-user-check mr-1"></i>

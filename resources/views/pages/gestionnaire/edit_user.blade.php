@@ -6,140 +6,184 @@
       <div class="row">
         <div class="col-12">
           <div class="card">
+
+            <!-- Message de succès -->
+            @if(session('success'))
+              <div class="alert alert-success alert-dismissible fade show" role="alert">
+                {{ session('success') }}
+                <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                  <span aria-hidden="true">&times;</span>
+                </button>
+              </div>
+            @endif
+
             <div class="card-header">
-              <h4>Modifier le rôle de l'utilisateur {{ $user-> name }}</h4>
+              <h4>Modifier l'utilisateur {{ $user->nom }} {{ $user->prenom }}</h4>
             </div>
             <div class="card-body">
+              <form action="{{ route('user_update.gestionnaire', $user->id) }}" method="POST" enctype="multipart/form-data">
+                @csrf
+                @method('PUT')
 
-         <div class="form-group row mb-4">
-                <form action="{{ route('user_update.gestionnaire', $user->id) }}" method="POST">
-                  @csrf
-                  @method('PUT')
-
+                <!-- Nom -->
+                <div class="form-group row mb-4">
                   <label class="col-form-label text-md-right col-12 col-md-3 col-lg-3">
-                    Rôle
+                    Nom <span class="text-danger">*</span>
                   </label>
+                  <div class="col-sm-12 col-md-7">
+                    <input type="text" name="nom" class="form-control @error('nom') is-invalid @enderror" value="{{ old('nom', $user->nom) }}" required>
+                    @error('nom')
+                      <small class="text-danger">{{ $message }}</small>
+                    @enderror
+                  </div>
+                </div>
 
-                  <div class="col-sm-12 col-md-12">
-                    <select name="role_id" class="form-control selectric" required>
-                      <option value=""></option>
+                <!-- Prénom -->
+                <div class="form-group row mb-4">
+                  <label class="col-form-label text-md-right col-12 col-md-3 col-lg-3">
+                    Prénom <span class="text-danger">*</span>
+                  </label>
+                  <div class="col-sm-12 col-md-7">
+                    <input type="text" name="prenom" class="form-control @error('prenom') is-invalid @enderror" value="{{ old('prenom', $user->prenom) }}" required>
+                    @error('prenom')
+                      <small class="text-danger">{{ $message }}</small>
+                    @enderror
+                  </div>
+                </div>
+
+                <!-- Sexe -->
+                <div class="form-group row mb-4">
+                  <label class="col-form-label text-md-right col-12 col-md-3 col-lg-3">
+                    Sexe <span class="text-danger">*</span>
+                  </label>
+                  <div class="col-sm-12 col-md-7">
+                    <select name="sexe" class="form-control selectric @error('sexe') is-invalid @enderror" required>
+                      <option value="">Sélectionner</option>
+                      <option value="Masculin" {{ old('sexe', $user->sexe) == 'Masculin' ? 'selected' : '' }}>Masculin</option>
+                      <option value="Féminin" {{ old('sexe', $user->sexe) == 'Féminin' ? 'selected' : '' }}>Féminin</option>
+                    </select>
+                    @error('sexe')
+                      <small class="text-danger">{{ $message }}</small>
+                    @enderror
+                  </div>
+                </div>
+
+                <!-- Photo -->
+                <div class="form-group row mb-4">
+                  <label class="col-form-label text-md-right col-12 col-md-3 col-lg-3">Photo</label>
+                  <div class="col-sm-12 col-md-7">
+                    <input type="file" name="photo_url" class="form-control @error('photo_url') is-invalid @enderror">
+                    @if($user->photo_url)
+                      <img src="{{ $user->photo_url }}" alt="Photo" class="mt-2" style="width: 80px; height: 80px;">
+                    @endif
+                    @error('photo_url')
+                      <small class="text-danger">{{ $message }}</small>
+                    @enderror
+                  </div>
+                </div>
+
+                <!-- Date de naissance -->
+                <div class="form-group row mb-4">
+                  <label class="col-form-label text-md-right col-12 col-md-3 col-lg-3">Date de naissance</label>
+                  <div class="col-sm-12 col-md-7">
+                    <input type="date" name="date_naissance" class="form-control @error('date_naissance') is-invalid @enderror" value="{{ old('date_naissance', $user->date_naissance) }}">
+                    @error('date_naissance')
+                      <small class="text-danger">{{ $message }}</small>
+                    @enderror
+                  </div>
+                </div>
+
+                <!-- Lieu de naissance -->
+                <div class="form-group row mb-4">
+                  <label class="col-form-label text-md-right col-12 col-md-3 col-lg-3">Lieu de naissance</label>
+                  <div class="col-sm-12 col-md-7">
+                    <input type="text" name="lieu_naissance" class="form-control @error('lieu_naissance') is-invalid @enderror" value="{{ old('lieu_naissance', $user->lieu_naissance) }}">
+                    @error('lieu_naissance')
+                      <small class="text-danger">{{ $message }}</small>
+                    @enderror
+                  </div>
+                </div>
+
+                <!-- Téléphone -->
+                <div class="form-group row mb-4">
+                  <label class="col-form-label text-md-right col-12 col-md-3 col-lg-3">Téléphone</label>
+                  <div class="col-sm-12 col-md-7">
+                    <input type="text" name="telephone" class="form-control @error('telephone') is-invalid @enderror" value="{{ old('telephone', $user->telephone) }}">
+                    @error('telephone')
+                      <small class="text-danger">{{ $message }}</small>
+                    @enderror
+                  </div>
+                </div>
+
+                <!-- Adresse -->
+                <div class="form-group row mb-4">
+                  <label class="col-form-label text-md-right col-12 col-md-3 col-lg-3">Adresse</label>
+                  <div class="col-sm-12 col-md-7">
+                    <input type="text" name="adresse" class="form-control @error('adresse') is-invalid @enderror" value="{{ old('adresse', $user->adresse) }}">
+                    @error('adresse')
+                      <small class="text-danger">{{ $message }}</small>
+                    @enderror
+                  </div>
+                </div>
+
+                <!-- Diplôme -->
+                <div class="form-group row mb-4">
+                  <label class="col-form-label text-md-right col-12 col-md-3 col-lg-3">Diplôme</label>
+                  <div class="col-sm-12 col-md-7">
+                    <input type="text" name="diplome" class="form-control @error('diplome') is-invalid @enderror" value="{{ old('diplome', $user->diplome) }}">
+                    @error('diplome')
+                      <small class="text-danger">{{ $message }}</small>
+                    @enderror
+                  </div>
+                </div>
+
+                <!-- Email -->
+                <div class="form-group row mb-4">
+                  <label class="col-form-label text-md-right col-12 col-md-3 col-lg-3">
+                    Email <span class="text-danger">*</span>
+                  </label>
+                  <div class="col-sm-12 col-md-7">
+                    <input type="email" name="email" class="form-control @error('email') is-invalid @enderror" value="{{ old('email', $user->email) }}" required>
+                    @error('email')
+                      <small class="text-danger">{{ $message }}</small>
+                    @enderror
+                  </div>
+                </div>
+
+                <!-- Rôle -->
+                <div class="form-group row mb-4">
+                  <label class="col-form-label text-md-right col-12 col-md-3 col-lg-3">
+                    Rôle <span class="text-danger">*</span>
+                  </label>
+                  <div class="col-sm-12 col-md-7">
+                    <select name="role_id" class="form-control selectric @error('role_id') is-invalid @enderror" required>
+                      <option value="">Sélectionner un rôle</option>
                       @foreach($roles as $role)
-                      <option value="{{ $role->id }}">
-                        {{ $role->name }}
-                      </option>
+                        <option value="{{ $role->id }}" {{ old('role_id', $user->role_id) == $role->id ? 'selected' : '' }}>
+                          {{ $role->name }}
+                        </option>
                       @endforeach
                     </select>
+                    @error('role_id')
+                      <small class="text-danger">{{ $message }}</small>
+                    @enderror
                   </div>
+                </div>
 
-                  <div class="form-group row mb-4">
-                    <label class="col-form-label text-md-right col-12 col-md-3 col-lg-3"></label>
-                    <div class="col-sm-12 col-md-7">
-                      <button class="btn btn-primary" type="submit">
-                        Attribuer
-                      </button>
-                    </div>
+                <!-- Bouton -->
+                <div class="form-group row mb-4">
+                  <label class="col-form-label text-md-right col-12 col-md-3 col-lg-3"></label>
+                  <div class="col-sm-12 col-md-7">
+                    <button class="btn btn-primary" type="submit">Attribuer</button>
                   </div>
-                </form>
+                </div>
 
-              </div>
+              </form>
             </div>
-
           </div>
         </div>
       </div>
     </div>
-</div>
-</section>
-<div class="settingSidebar">
-  <a href="javascript:void(0)" class="settingPanelToggle"> <i class="fa fa-spin fa-cog"></i>
-  </a>
-  <div class="settingSidebar-body ps-container ps-theme-default">
-    <div class=" fade show active">
-      <div class="setting-panel-header">Setting Panel
-      </div>
-      <div class="p-15 border-bottom">
-        <h6 class="font-medium m-b-10">Select Layout</h6>
-        <div class="selectgroup layout-color w-50">
-          <label class="selectgroup-item">
-            <input type="radio" name="value" value="1" class="selectgroup-input-radio select-layout" checked>
-            <span class="selectgroup-button">Light</span>
-          </label>
-          <label class="selectgroup-item">
-            <input type="radio" name="value" value="2" class="selectgroup-input-radio select-layout">
-            <span class="selectgroup-button">Dark</span>
-          </label>
-        </div>
-      </div>
-      <div class="p-15 border-bottom">
-        <h6 class="font-medium m-b-10">Sidebar Color</h6>
-        <div class="selectgroup selectgroup-pills sidebar-color">
-          <label class="selectgroup-item">
-            <input type="radio" name="icon-input" value="1" class="selectgroup-input select-sidebar">
-            <span class="selectgroup-button selectgroup-button-icon" data-toggle="tooltip"
-              data-original-title="Light Sidebar"><i class="fas fa-sun"></i></span>
-          </label>
-          <label class="selectgroup-item">
-            <input type="radio" name="icon-input" value="2" class="selectgroup-input select-sidebar" checked>
-            <span class="selectgroup-button selectgroup-button-icon" data-toggle="tooltip"
-              data-original-title="Dark Sidebar"><i class="fas fa-moon"></i></span>
-          </label>
-        </div>
-      </div>
-      <div class="p-15 border-bottom">
-        <h6 class="font-medium m-b-10">Color Theme</h6>
-        <div class="theme-setting-options">
-          <ul class="choose-theme list-unstyled mb-0">
-            <li title="white" class="active">
-              <div class="white"></div>
-            </li>
-            <li title="cyan">
-              <div class="cyan"></div>
-            </li>
-            <li title="black">
-              <div class="black"></div>
-            </li>
-            <li title="purple">
-              <div class="purple"></div>
-            </li>
-            <li title="orange">
-              <div class="orange"></div>
-            </li>
-            <li title="green">
-              <div class="green"></div>
-            </li>
-            <li title="red">
-              <div class="red"></div>
-            </li>
-          </ul>
-        </div>
-      </div>
-      <div class="p-15 border-bottom">
-        <div class="theme-setting-options">
-          <label class="m-b-0">
-            <input type="checkbox" name="custom-switch-checkbox" class="custom-switch-input"
-              id="mini_sidebar_setting">
-            <span class="custom-switch-indicator"></span>
-            <span class="control-label p-l-10">Mini Sidebar</span>
-          </label>
-        </div>
-      </div>
-      <div class="p-15 border-bottom">
-        <div class="theme-setting-options">
-          <label class="m-b-0">
-            <input type="checkbox" name="custom-switch-checkbox" class="custom-switch-input"
-              id="sticky_header_setting">
-            <span class="custom-switch-indicator"></span>
-            <span class="control-label p-l-10">Sticky Header</span>
-          </label>
-        </div>
-      </div>
-      <div class="mt-4 mb-4 p-3 align-center rt-sidebar-last-ele">
-        <a href="#" class="btn btn-icon icon-left btn-primary btn-restore-theme">
-          <i class="fas fa-undo"></i> Restore Default
-        </a>
-      </div>
-    </div>
-  </div>
-</div>
+  </section>
 </div>
 @endsection

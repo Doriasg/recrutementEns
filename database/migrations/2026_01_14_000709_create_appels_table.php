@@ -18,6 +18,7 @@ return new class extends Migration
             $table->string('description')->nullable();
             $table->unsignedBigInteger('semestre_id');
             $table->string('fichier_url');
+              $table-> dateTime('date_fin');
             $table-> boolean('visible')->default(1);
             $table->timestamps();
         });

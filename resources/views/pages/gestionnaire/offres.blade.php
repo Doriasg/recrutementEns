@@ -22,6 +22,7 @@
             <th>Statut</th>
             <th>Date de création</th>
             <th>Date de clôture</th>
+            <th>Annee academique</th>
             <th class="text-center">Actions</th>
         </tr>
     </thead>
@@ -32,7 +33,7 @@
                 <td>{{ $index + 1 }}</td>
 
                 <td class="font-weight-bold">
-                    {{ $offre->name }}
+                    {{ $offre->title }}
                 </td>
 
                 <td>
@@ -40,10 +41,11 @@
                 </td>
 
                 <td>
-                    @if ($offre->status === 'active')
-                        <span class="badge badge-success">Active</span>
+                    @if ($offre->date_fin < $date_actuelle)
+                    <span class="badge badge-success">En cours</span>
+                       
                     @else
-                        <span class="badge badge-danger">Clôturée</span>
+     <span class="badge badge-danger">Clôturée</span>
                     @endif
                 </td>
 
@@ -54,6 +56,7 @@
                 <td>
                     {{ \Carbon\Carbon::parse($offre->date_fin)->format('d/m/Y') }}
                 </td>
+                <td> {{ $offre->annee-> name }}</td>
 
                 <td class="text-center">
                     {{-- Voir --}}

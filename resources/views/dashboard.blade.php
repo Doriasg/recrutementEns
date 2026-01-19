@@ -185,7 +185,7 @@
       </div>
       <ul class="sidebar-menu">
         <li class="menu-header">{{ Auth::user()->role->name ?? 'null' }}</li>
-        @if (Auth::user()?->role?->name == 'gestionnaire'):
+        @if (Auth::user()?->role?->name == 'Super administrateur'):
         <li class="dropdown">
           <a href="{{ route('dashboard.gestionnaire') }}" class="nav-link"><i data-feather="monitor"></i><span>Tableau de bord</span></a>
         </li>
@@ -200,9 +200,9 @@
           </ul>
         </li>
         <li class="dropdown">
-          <a href="#" class="menu-toggle nav-link has-dropdown"><i data-feather="command"></i><span>Offres</span></a>
+          <a href="#" class="menu-toggle nav-link has-dropdown"><i data-feather="command"></i><span>Appels</span></a>
           <ul class="dropdown-menu">
-            <li><a class="nav-link" href="{{ route('offres.gestionnaire') }}">Voir les offres</a></li>
+            <li><a class="nav-link" href="{{ route('offres.gestionnaire') }}">Voir les appels</a></li>
             <li><a class="nav-link" href="{{ route('create_offre.gestionnaire') }}">Ajouter</a></li>
           </ul>
         </li>

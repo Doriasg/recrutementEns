@@ -14,7 +14,14 @@ class Appel extends Model
         'semestre_id',
         'fichier_url',
         'visible',
+        'date_fin',
         'created_at',
         'updated_at',
     ];
+    public function candidatures(){
+        return $this->hasMany(Candidatures::class);
+    }
+    public function annee(){
+        return $this->belongsTo(AnneeAcademique::class);
+    }
 }

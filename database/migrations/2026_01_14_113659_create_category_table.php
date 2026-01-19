@@ -11,7 +11,7 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('categorie', function (Blueprint $table) {
+        Schema::create('categories', function (Blueprint $table) {
             $table->id();
             $table->foreignId('module_id')->constrained('modules')->cascadeOnDelete();
             $table->unsignedBigInteger('user_id')->nullable();
@@ -26,12 +26,6 @@ return new class extends Migration
             $table->string('mission')->nullable();
             $table->string('vision')->nullable();
             $table->string('fondateurs')->nullable();
-            $table->string('ifu')->nullable();
-            $table->string('rib')->nullable();
-            $table->string('cv')->nullable();
-            $table->string('demande')->nullable();
-            $table->string('attestion')->nullable();
-            $table->string('diplome')->nullable();
             $table->date('date_debut')->nullable();
             $table->date('date_fin')->nullable();
             $table->timestamps();

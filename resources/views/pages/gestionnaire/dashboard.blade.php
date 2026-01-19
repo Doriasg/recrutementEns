@@ -3,10 +3,19 @@
  <div class="main-content">
         <section class="section">
             <div class="row">
+              @if(session('success'))
+    <div class="alert alert-success alert-dismissible fade show" role="alert">
+        <i class="fas fa-check-circle"></i>
+        {{ session('success') }}
+        <button type="button" class="close" data-dismiss="alert">
+            <span>&times;</span>
+        </button>
+    </div>
+@endif
             <div class="col-12 col-sm-12 col-lg-12">
               <div class="card">
                 <div class="card-header">
-                  <h2 style="color: blue;">Bienvenue {{ $user ->role-> name}}, {{ $user->name }}</h2>
+                  <h2 style="color: blue;">Bienvenue {{ Auth::user()?->role?-> name}}, {{ Auth::user()?->name }}</h2>
                   
                 </div>
                 <div class="card-body">
@@ -31,7 +40,7 @@
                       <div class="col-lg-6 col-md-6 col-sm-6 col-xs-6 pr-0 pt-3">
                         <div class="card-content">
                           <h5 class="font-15">Utilisateurs</h5>
-                          <h2 class="mb-3 font-18">{{ $users->count() }}</h2>
+                          <h2 class="mb-3 font-18"></h2>
                           <p class="mb-0"> <a href="{{ route('users.gestionnaire') }}">Consulter</a></p>
                         </div>
                       </div>
@@ -53,7 +62,7 @@
                       <div class="col-lg-6 col-md-6 col-sm-6 col-xs-6 pr-0 pt-3">
                         <div class="card-content">
                           <h5 class="font-15">Ofres en cours</h5>
-                          <h2 class="mb-3 font-18">{{ $offres->count() }}</h2>
+                          <h2 class="mb-3 font-18"></h2>
                           <p class="mb-0"><a href="{{ route('offres.gestionnaire') }}">Consulter</a></p>
                         </div>
                       </div>
@@ -75,7 +84,7 @@
                       <div class="col-lg-6 col-md-6 col-sm-6 col-xs-6 pr-0 pt-3">
                         <div class="card-content">
                           <h5 class="font-15">Candidatures</h5>
-                          <h2 class="mb-3 font-18">{{ $candidatures->count() }}</h2>
+                          <h2 class="mb-3 font-18">#</h2>
                           
                         </div>
                       </div>
